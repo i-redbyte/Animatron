@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Transition
+        android:id="@+id/startToEnd"
+        app:constraintSetEnd="@+id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="600" />
+    <!--First scene -->
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/ivSemicircle">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Transform android:rotation="0" />
+        </Constraint>
+    </ConstraintSet>
+    <!-- region First scene to second -->
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/ivSemicircle">
+            <Layout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <Transform android:rotation="-90" />
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>

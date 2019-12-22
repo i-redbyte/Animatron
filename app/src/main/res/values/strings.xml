@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Animatron</string>
+    <string name="main_first_animation">Three scenes</string>
+    <string name="main_next">three_scenes_next</string>
 </resources>
