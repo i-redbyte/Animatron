@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_gopher_root_motion"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/colorBackgroundThreeScenes"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     app:layoutDescription="@xml/gopher_animation_scene">
@@ -36,6 +37,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSemicircle"
         app:srcCompat="@drawable/ic_gopher" />
+
+    <ImageView
+        android:id="@+id/ivSceneCircleMask"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="103dp"
+        android:alpha="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivSemicircle"
+        app:srcCompat="@drawable/ic_scene_mask"
+        tools:visibility="visible" />
+
 </androidx.constraintlayout.motion.widget.MotionLayout>
