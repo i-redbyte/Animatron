@@ -1,5 +1,7 @@
 package org.redbyte.animatron.threescenes
 
+import android.animation.Animator
+import android.animation.ObjectAnimator
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -25,44 +27,79 @@ class ThreeScenesActivity : AppCompatActivity() {
     }
 
     private fun animateToSecondScene() {
-        activity_gopher_root_motion.setTransitionListener(object : PlainTransitionListener() {
+        gopherRootMotion.setTransitionListener(object : PlainTransitionListener() {
             override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
+                val duration = 600L
+
                 ivSceneCircleMask.alpha = 1f
                 animateViewAlpha(ivSceneCircleMask, 10, 0)
+                val mobileImageY = ivGopher.y
+                moveViewByY(ivGopher, duration, 100, -(mobileImageY - DELTA_Y))
             }
         })
         //Start animation semicircle
-        activity_gopher_root_motion.setTransition(R.id.start, R.id.end)
-        activity_gopher_root_motion.transitionToEnd()
+        gopherRootMotion.setTransition(R.id.start, R.id.end)
+        gopherRootMotion.transitionToEnd()
     }
 
     private fun setupRecyclerView() {
         // TODO: Red_byte 2019-12-22 release it 
     }
-}
 
-private fun animateViewAlpha(
-    view: View,
-    duration: Long,
-    delay: Long = 0,
-    onAnimationStarted: () -> Unit = {},
-    onAnimationCompleted: () -> Unit = {}
-) {
-    val alphaAnimation = AlphaAnimation(0.0f, 1.0f).apply {
-        this.duration = duration
-        startOffset = delay
-        fillAfter = true
+    private fun moveViewByY(
+        view: View,
+        duration: Long,
+        delay: Long,
+        value: Float,
+        onAnimationStarted: () -> Unit = {},
+        onAnimationCompleted: () -> Unit = {}
+    ) {
+        ObjectAnimator.ofFloat(view, "translationY", value).apply {
+            this.duration = duration
+            startDelay = delay
 
-        setAnimationListener(object : PlainAnimationListener() {
-            override fun onAnimationStart(animation: Animation?) {
-                onAnimationStarted.invoke()
-            }
+            addListener(object : PlainAnimatorListener() {
+                override fun onAnimationStart(animation: Animator?, isReverse: Boolean) {
+                    onAnimationStarted.invoke()
+                }
 
-            override fun onAnimationEnd(animation: Animation?) {
-                onAnimationCompleted.invoke()
-            }
-        })
+                override fun onAnimationEnd(p0: Animator?) {
+                    onAnimationCompleted.invoke()
+                }
+            })
+
+            start()
+        }
     }
 
-    view.startAnimation(alphaAnimation)
+    private fun animateViewAlpha(
+        view: View,
+        duration: Long,
+        delay: Long = 0,
+        onAnimationStarted: () -> Unit = {},
+        onAnimationCompleted: () -> Unit = {}
+    ) {
+        val alphaAnimation = AlphaAnimation(0.0f, 1.0f).apply {
+            this.duration = duration
+            startOffset = delay
+            fillAfter = true
+
+            setAnimationListener(object : PlainAnimationListener() {
+                override fun onAnimationStart(animation: Animation?) {
+                    onAnimationStarted()
+                }
+
+                override fun onAnimationEnd(animation: Animation?) {
+                    onAnimationCompleted()
+                }
+            })
+        }
+
+        view.startAnimation(alphaAnimation)
+    }
+
+    companion object {
+        private const val DELTA_Y = 580
+    }
 }
+
