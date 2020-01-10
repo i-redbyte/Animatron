@@ -1,4 +1,4 @@
-package org.redbyte.animatron.threescenes
+package org.redbyte.animatron.power
 
 import android.animation.Animator
 import android.animation.ObjectAnimator
@@ -8,14 +8,17 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
-import kotlinx.android.synthetic.main.activity_three_scenes.*
+import kotlinx.android.synthetic.main.activity_golang_power.*
 import org.redbyte.animatron.R
+import org.redbyte.animatron.power.animatron.PlainAnimationListener
+import org.redbyte.animatron.power.animatron.PlainAnimatorListener
+import org.redbyte.animatron.power.animatron.PlainTransitionListener
 
-class ThreeScenesActivity : AppCompatActivity() {
+class GolangPowerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_three_scenes)
+        setContentView(R.layout.activity_golang_power)
         setupViews()
     }
 

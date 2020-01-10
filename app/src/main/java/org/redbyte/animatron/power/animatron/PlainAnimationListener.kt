@@ -1,4 +1,4 @@
-package org.redbyte.animatron.threescenes
+package org.redbyte.animatron.power.animatron
 
 import android.view.animation.Animation
 
