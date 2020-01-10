@@ -4,7 +4,7 @@
     android:viewportWidth="290"
     android:viewportHeight="370">
     <path
-        android:fillColor="@color/colorBackgroundThreeScenes"
+        android:fillColor="@color/colorBkgGoPowerScenes"
         android:fillType="evenOdd"
         android:pathData="M269.9,39.7c-27.1,60.5 -85.2,82.2 -129,82.2c-43.9,0 -101.9,-21.7 -129,-82.2H0v329.6h281.8V39.7H269.9z" />
 </vector>

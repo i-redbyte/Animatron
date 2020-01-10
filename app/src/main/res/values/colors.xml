@@ -4,5 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBackgroundThreeScenes">#192420</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGreen">#7ACC08</color>
+    <color name="colorGo">#6AD7E5</color>
+    <color name="colorBkgGoPowerScenes">#192420</color>
 </resources>

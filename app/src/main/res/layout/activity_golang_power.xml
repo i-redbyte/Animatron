@@ -5,7 +5,7 @@
     android:id="@+id/gopherRootMotion"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackgroundThreeScenes"
+    android:background="@color/colorBkgGoPowerScenes"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     app:layoutDescription="@xml/gopher_animation_scene">
@@ -25,7 +25,10 @@
         android:layout_height="44dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/btn_go_power"
         android:text="@string/go_power"
+        android:fontFamily="sans-serif-medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -58,7 +61,7 @@
         android:id="@+id/onboarding_activity_bottom_cover"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/colorBackgroundThreeScenes"
+        android:background="@color/colorBkgGoPowerScenes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
