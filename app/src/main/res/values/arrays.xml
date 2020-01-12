@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="gophers">
+        <item>@drawable/gopher1</item>
+        <item>@drawable/gopher2</item>
+        <item>@drawable/gopher3</item>
+        <item>@drawable/gopher4</item>
+        <item>@drawable/gopher5</item>
+        <item>@drawable/gopher6</item>
+        <item>@drawable/gopher7</item>
+        <item>@drawable/gopher8</item>
+        <item>@drawable/gopher9</item>
+        <item>@drawable/gopher10</item>
+        <item>@drawable/gopher11</item>
+        <item>@drawable/gopher12</item>
+    </integer-array>
+</resources>

@@ -10,10 +10,19 @@
         android:id="@+id/btnGoPower"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:text="@string/main_first_animation"
+        android:text="@string/main_go_power"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnGophers"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="@string/main_gophers"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoPower" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

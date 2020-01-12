@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.redbyte.animatron.power.GolangPowerActivity
+import org.redbyte.animatron.scrollman.AutoGoActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         btnGoPower.setOnClickListener {
             startActivity(Intent(this, GolangPowerActivity::class.java))
+        }
+        btnGophers.setOnClickListener {
+            startActivity(AutoGoActivity.open(this))
         }
     }
 }

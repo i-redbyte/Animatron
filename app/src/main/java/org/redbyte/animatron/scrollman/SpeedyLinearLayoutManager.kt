@@ -12,7 +12,7 @@ class SpeedyLinearLayoutManager(
     reverseLayout: Boolean
 ) : LinearLayoutManager(context, orientation, reverseLayout) {
     companion object {
-        private const val MILLISECONDS_PER_INCH = 75f // чем больше, тем медленее скролл
+        private const val MILLISECONDS_PER_INCH = 300f
     }
 
     override fun smoothScrollToPosition(recyclerView: RecyclerView, state: RecyclerView.State?, position: Int) {

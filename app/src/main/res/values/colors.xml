@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">@color/colorDarkGo</color>
+    <color name="colorPrimaryDark">@color/colorDarkGo</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorGreen">#7ACC08</color>
     <color name="colorGo">#6AD7E5</color>
+    <color name="colorDarkGo">#0F4F57</color>
     <color name="colorBkgGoPowerScenes">#192420</color>
 </resources>
