@@ -32,5 +32,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
             <Transform android:rotation="-90" />
         </Constraint>
+        <Constraint
+            android:alpha="0"
+            android:id="@+id/btnNext">
+
+        </Constraint>
+
     </ConstraintSet>
 </MotionScene>
