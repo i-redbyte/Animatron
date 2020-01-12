@@ -2,4 +2,5 @@
     <string name="app_name">Animatron</string>
     <string name="main_first_animation">Golang power!</string>
     <string name="go_power">Go!</string>
+    <string name="error_null_metrics">Metrics is null</string>
 </resources>
