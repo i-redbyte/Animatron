@@ -3,5 +3,5 @@
 - Golang power
 
 <p align="center">
-<img src="/golang_power.gif" alt="Currency Converter">
+<img src="/gifs/golang_power.gif" alt="GO POWER!">
 </p>
