@@ -15,7 +15,9 @@
             android:name=".trigan.TriganActivity"/>
         <activity android:name=".scrollman.ScrollmanActivity" />
         <activity android:name=".power.GolangPowerActivity" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:screenOrientation="fullSensor"
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

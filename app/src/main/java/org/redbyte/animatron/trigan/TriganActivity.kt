@@ -4,9 +4,11 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.animation.Animation
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_trigan.*
 import org.redbyte.animatron.R
+import org.redbyte.animatron.base.extensions.getScreenWidth
 import kotlin.math.PI
 import kotlin.math.sin
 
@@ -19,23 +21,32 @@ class TriganActivity : AppCompatActivity() {
     }
 
     private fun setupAnimation() {
-      ValueAnimator.ofFloat(0f, 5.5f).apply {
+        val maxValue = getScreenWidth() - (ivCosmoGopher.width+ivCosmoGopher.height)*2
+        ValueAnimator.ofFloat(0f, 5.5f).apply {
             var incrementalValue = 0f
+            var k = INC_VALUE
             duration = COSMO_DURATION
-
             addUpdateListener { animation ->
                 val value = (animation.animatedValue as Float)
                 ivCosmoGopher.translationX = incrementalValue
                 ivCosmoGopher.translationY = sin(value * PI * 2).toFloat() * 300
-                incrementalValue += 2f
+                incrementalValue += k
+                if (incrementalValue > maxValue) {
+                    k = -INC_VALUE
+                } else if (incrementalValue <= 0) {
+                    k = INC_VALUE
+                }
             }
             setTarget(ivCosmoGopher)
-           start()
+            start()
+            repeatCount = Animation.INFINITE
         }
+
     }
 
     companion object {
         const val COSMO_DURATION = 16500L
+        const val INC_VALUE = 2.4f
         fun open(context: Context): Intent = Intent(context, TriganActivity::class.java)
     }
 }
