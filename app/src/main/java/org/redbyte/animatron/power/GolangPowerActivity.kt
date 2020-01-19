@@ -23,7 +23,6 @@ class GolangPowerActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
-        setupRecyclerView()
         btnNext.setOnClickListener {
             animateToSecondScene()
         }
@@ -40,13 +39,8 @@ class GolangPowerActivity : AppCompatActivity() {
                 moveViewByY(ivGopher, duration, 100, -(mobileImageY - DELTA_Y))
             }
         })
-        //Start animation semicircle
         gopherRootMotion.setTransition(R.id.start, R.id.end)
         gopherRootMotion.transitionToEnd()
-    }
-
-    private fun setupRecyclerView() {
-        // TODO: Red_byte 2019-12-22 release it 
     }
 
     private fun moveViewByY(

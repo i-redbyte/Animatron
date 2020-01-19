@@ -24,5 +24,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnGoPower" />
+    <Button
+        android:id="@+id/btnTrigan"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="@string/main_trigan"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGophers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

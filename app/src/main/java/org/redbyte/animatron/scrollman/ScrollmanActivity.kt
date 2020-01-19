@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_auto_go.*
 import org.redbyte.animatron.R
 import org.redbyte.animatron.base.DelegationAdapter
 
-class AutoGoActivity : AppCompatActivity() {
+class ScrollmanActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +42,7 @@ class AutoGoActivity : AppCompatActivity() {
 
     companion object {
         const val STOP_POSITION = 10
-        fun open(context: Context): Intent = Intent(context, AutoGoActivity::class.java)
+        fun open(context: Context): Intent = Intent(context, ScrollmanActivity::class.java)
     }
 }
 
