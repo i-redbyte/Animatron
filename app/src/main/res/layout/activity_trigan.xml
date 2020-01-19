@@ -3,15 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".trigan.TriganActivity">
+    android:layout_height="match_parent">
+
+    <org.redbyte.animatron.trigan.SkyView
+        android:id="@+id/sky"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBlack" />
 
     <ImageView
         android:id="@+id/ivCosmoGopher"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_go_cosmos"
         android:layout_width="160dp"
-        android:layout_height="180dp" />
+        android:layout_height="180dp"
+        android:src="@drawable/ic_go_cosmos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
