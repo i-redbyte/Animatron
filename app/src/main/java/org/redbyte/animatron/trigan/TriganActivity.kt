@@ -31,6 +31,7 @@ class TriganActivity : AppCompatActivity() {
                 ivCosmoGopher.translationX = incrementalValue
                 ivCosmoGopher.translationY = sin(value * PI * 2).toFloat() * 300
                 incrementalValue += k
+                if (incrementalValue.toInt() % 4 == 0)  sky.invalidate()
                 if (incrementalValue > maxValue) {
                     k = -INC_VALUE
                 } else if (incrementalValue <= 0) {
@@ -41,7 +42,6 @@ class TriganActivity : AppCompatActivity() {
             start()
             repeatCount = Animation.INFINITE
         }
-
     }
 
     companion object {
