@@ -22,5 +22,7 @@ class MainActivity : AppCompatActivity() {
         btnTrigan.setOnClickListener {
             startActivity(TriganActivity.open(this))
         }
+        scv.setCurveLevel(6)
+
     }
 }
