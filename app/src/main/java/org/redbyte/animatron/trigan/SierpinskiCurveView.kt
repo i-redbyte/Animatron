@@ -9,7 +9,7 @@ import android.view.View
 import org.redbyte.animatron.base.extensions.dp
 
 /**
- *Deriving the Sierpinski curve of a given order in a view
+ * Deriving the Sierpinski curve of a given order in a view
  * @see https://en.wikipedia.org/wiki/Sierpi%C5%84ski_curve
  * */
 class SierpinskiCurveView : View {
