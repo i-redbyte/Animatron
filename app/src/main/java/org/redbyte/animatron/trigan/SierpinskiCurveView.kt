@@ -6,27 +6,27 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.ColorInt
 import org.redbyte.animatron.base.extensions.dp
 
 /**
  * Deriving the Sierpinski curve of a given order in a view
  * @see https://en.wikipedia.org/wiki/Sierpi%C5%84ski_curve
  * */
-class SierpinskiCurveView : View {
+class SierpinskiCurveView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
     private var level = 3
     private val paint = Paint()
     private var baseX = 0f
     private var baseY = 0f
     private var distance: Int = 250.dp()
     private lateinit var canvas: Canvas
+
     //TODO: Make customization through attributes
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(
-        context: Context,
-        attrs: AttributeSet?,
-        defStyleAttr: Int
-    ) : super(context, attrs, defStyleAttr) {
+    init {
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 4.dp().toFloat()
         paint.color = Color.BLACK
@@ -40,6 +40,10 @@ class SierpinskiCurveView : View {
 
     fun setCurveLevel(level: Int) {
         this.level = level
+    }
+
+    fun setColor(@ColorInt color: Int) {
+        paint.color = color
     }
 
     private fun drawSierpinskiCurve() {

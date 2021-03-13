@@ -1,6 +1,7 @@
 package org.redbyte.animatron
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         btnTrigan.setOnClickListener {
             startActivity(TriganActivity.open(this))
         }
-        scv.setCurveLevel(6)
-
+        scv.setColor(Color.parseColor("#235f22"))
+        scv.setCurveLevel(5)
     }
 }
