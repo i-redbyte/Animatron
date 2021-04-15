@@ -8,5 +8,6 @@
     <color name="colorGreen">#7ACC08</color>
     <color name="colorGo">#6AD7E5</color>
     <color name="colorDarkGo">#0F4F57</color>
+    <color name="colorGreenButton">#235f22</color>
     <color name="colorBkgGoPowerScenes">#192420</color>
 </resources>

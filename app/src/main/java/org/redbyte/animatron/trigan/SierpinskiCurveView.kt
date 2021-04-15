@@ -10,10 +10,6 @@ import androidx.annotation.ColorInt
 import org.redbyte.animatron.R
 import org.redbyte.animatron.base.extensions.dp
 
-/**
- * Deriving the Sierpinski curve of a given order in a view
- * @see https://en.wikipedia.org/wiki/Sierpi%C5%84ski_curve
- * */
 class SierpinskiCurveView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
