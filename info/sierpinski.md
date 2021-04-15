@@ -4,7 +4,10 @@ Deriving the Sierpinski curve of a given order
 
 [See](https://en.wikipedia.org/wiki/Sierpi%C5%84ski_curve)
 
-![Sierpincki curve](/img/sierpincki.png)
+ 
+<p align="center">
+<img src="https://github.com/i-redbyte/Animatron/blob/master/info/img/sierpincki.png" alt="Sierpincki curve">
+</p>
 
 **Example in layout:**
 
