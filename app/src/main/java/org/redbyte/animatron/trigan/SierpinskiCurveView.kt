@@ -7,6 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorInt
+import org.redbyte.animatron.R
 import org.redbyte.animatron.base.extensions.dp
 
 /**
@@ -30,6 +31,19 @@ class SierpinskiCurveView @JvmOverloads constructor(
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 4.dp().toFloat()
         paint.color = Color.BLACK
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.SierpinskiCurveView,
+            0,
+            0
+        ).apply {
+            try {
+                level = getInteger(R.styleable.SierpinskiCurveView_level, 3)
+                distance = getDimension(R.styleable.SierpinskiCurveView_distance, 0.0f).toInt()
+            } finally {
+                recycle()
+            }
+        }
     }
 
     override fun onDraw(canvas: Canvas?) {

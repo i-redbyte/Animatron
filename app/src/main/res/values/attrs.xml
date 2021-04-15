@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SierpinskiCurveView">
+        <attr name="level" format="integer" />
+        <attr name="distance" format="dimension" />
+    </declare-styleable>
+</resources>

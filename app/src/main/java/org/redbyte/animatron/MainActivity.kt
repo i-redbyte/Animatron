@@ -24,6 +24,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(TriganActivity.open(this))
         }
         scv.setColor(Color.parseColor("#235f22"))
-        scv.setCurveLevel(5)
     }
 }
