@@ -4,10 +4,7 @@ Deriving the Sierpinski curve of a given order
 
 [See](https://en.wikipedia.org/wiki/Sierpi%C5%84ski_curve)
 
- 
-<p align="center">
-<img src="/img/sierpincki.png" alt="Space gopher">
-</p>
+![Sierpincki curve](/img/sierpincki.png)
 
 **Example in layout:**
 
