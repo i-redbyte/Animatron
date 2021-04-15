@@ -1,14 +1,10 @@
 **Android animation experiments**
 
-- Golang power
+- [Golang power](/info/golang_power.md)
 
-<p align="center">
-<img src="/gifs/golang_power.gif" alt="GO POWER!">
-</p>
+- [Gophers auto scroll](/info/gophers.md)
 
+- [Space gopher](/info/space_gopher.md)
 
-- Gophers auto scroll
+- [Sierpinski curve view](/info/sierpinski.md)
 
-<p align="center">
-<img src="/gifs/gophers.gif" alt="GO POWER!">
-</p>
