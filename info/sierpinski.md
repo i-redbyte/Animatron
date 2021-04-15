@@ -6,7 +6,7 @@ Deriving the Sierpinski curve of a given order
 
  
 <p align="center">
-<img src="https://github.com/i-redbyte/Animatron/blob/master/info/img/sierpincki.png" alt="Sierpincki curve">
+<img src="https://github.com/i-redbyte/Animatron/blob/master/info/img/sierpincki.png" alt="Sierpincki curve" width="50%" height="50%">
 </p>
 
 **Example in layout:**
