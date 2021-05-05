@@ -8,5 +8,5 @@
 
 - [Sierpinski curve view](/info/sierpinski.md)
 
-- [Go card](/info/sierpinski.md)
+- [Go card](/info/go_card.md)
 
