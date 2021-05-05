@@ -10,14 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".card.GoCardActivity"></activity>
         <activity
-            android:screenOrientation="landscape"
-            android:name=".trigan.TriganActivity"/>
+            android:name=".trigan.TriganActivity"
+            android:screenOrientation="landscape" />
         <activity android:name=".scrollman.ScrollmanActivity" />
         <activity android:name=".power.GolangPowerActivity" />
         <activity
-            android:screenOrientation="fullSensor"
-            android:name=".MainActivity">
+            android:name=".MainActivity"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

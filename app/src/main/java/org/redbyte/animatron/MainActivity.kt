@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import org.redbyte.animatron.card.GoCardActivity
 import org.redbyte.animatron.power.GolangPowerActivity
 import org.redbyte.animatron.scrollman.ScrollmanActivity
 import org.redbyte.animatron.trigan.TriganActivity
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         btnTrigan.setOnClickListener {
             startActivity(TriganActivity.open(this))
         }
-        scv.setColor(Color.parseColor("#235f22"))
+        btnGoCard.setOnClickListener {
+            startActivity(GoCardActivity.open(this))
+        }
     }
 }
