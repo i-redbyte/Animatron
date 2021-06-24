@@ -1,5 +1,7 @@
 **Android animation experiments**
 
+--- No patterns, no architecture, just animation and view! 
+
 - [Golang power](/info/golang_power.md)
 
 - [Gophers auto scroll](/info/gophers.md)
