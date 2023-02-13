@@ -6,11 +6,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_auto_go.*
+import androidx.recyclerview.widget.RecyclerView
 import org.redbyte.animatron.R
 import org.redbyte.animatron.base.DelegationAdapter
 
 class ScrollmanActivity : AppCompatActivity() {
+    private val rvGophers by lazy { findViewById<RecyclerView>(R.id.rvGophers) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

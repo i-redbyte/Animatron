@@ -11,7 +11,7 @@ import com.hannesdorfmann.adapterdelegates3.AbsListItemAdapterDelegate
 import org.redbyte.animatron.R
 
 class GophersDelegate(context: Context) :
-    AbsListItemAdapterDelegate<@DrawableRes Int, Any, GophersDelegate.Holder>() {
+    AbsListItemAdapterDelegate<@receiver:DrawableRes Int, Any, GophersDelegate.Holder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 

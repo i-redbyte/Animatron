@@ -6,15 +6,23 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
-import kotlinx.android.synthetic.main.activity_golang_power.*
 import org.redbyte.animatron.R
 import org.redbyte.animatron.power.animatron.PlainAnimationListener
 import org.redbyte.animatron.power.animatron.PlainAnimatorListener
 import org.redbyte.animatron.power.animatron.PlainTransitionListener
 
+private const val DELTA_Y = 580
+
 class GolangPowerActivity : AppCompatActivity() {
+    private val btnNext by lazy { findViewById<Button>(R.id.btnNext) }
+
+    private val gopherRootMotion by lazy { findViewById<MotionLayout>(R.id.gopherRootMotion) }
+    private val ivSceneCircleMask by lazy { findViewById<ImageView>(R.id.ivSceneCircleMask) }
+    private val ivGopher by lazy { findViewById<ImageView>(R.id.ivGopher) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,17 +32,16 @@ class GolangPowerActivity : AppCompatActivity() {
 
     private fun setupViews() {
         btnNext.setOnClickListener {
-            animateToSecondScene()
+            animateScene()
         }
     }
 
-    private fun animateToSecondScene() {
+    private fun animateScene() {
         gopherRootMotion.setTransitionListener(object : PlainTransitionListener() {
             override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
-                val duration = 600L
-
                 ivSceneCircleMask.alpha = 1f
                 animateViewAlpha(ivSceneCircleMask, 10, 0)
+                val duration = 600L
                 val mobileImageY = ivGopher.y
                 moveViewByY(ivGopher, duration, 100, -(mobileImageY - DELTA_Y))
             }
@@ -56,11 +63,11 @@ class GolangPowerActivity : AppCompatActivity() {
             startDelay = delay
 
             addListener(object : PlainAnimatorListener() {
-                override fun onAnimationStart(animation: Animator?, isReverse: Boolean) {
+                override fun onAnimationStart(animation: Animator) {
                     onAnimationStarted.invoke()
                 }
 
-                override fun onAnimationEnd(p0: Animator?) {
+                override fun onAnimationEnd(animation: Animator) {
                     onAnimationCompleted.invoke()
                 }
             })
@@ -93,10 +100,6 @@ class GolangPowerActivity : AppCompatActivity() {
         }
 
         view.startAnimation(alphaAnimation)
-    }
-
-    companion object {
-        private const val DELTA_Y = 580
     }
 }
 

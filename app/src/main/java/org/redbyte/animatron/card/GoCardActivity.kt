@@ -6,16 +6,17 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.go_card_back.*
-import kotlinx.android.synthetic.main.go_card_front.*
+import android.widget.FrameLayout
 import org.redbyte.animatron.R
-import org.redbyte.animatron.trigan.TriganActivity
+import org.redbyte.animatron.trigan.SierpinskiCurveView
 
 class GoCardActivity : AppCompatActivity() {
     private lateinit var mSetRightOut: AnimatorSet
     private lateinit var mSetLeftIn: AnimatorSet
     private var mIsBackVisible = false
-
+    private val cvGoCardFront by lazy { findViewById<FrameLayout>(R.id.cvGoCardFront) }
+    private val cvGoCardBack by lazy {  findViewById<FrameLayout>(R.id.cvGoCardBack) }
+    private val scv by lazy {  findViewById<SierpinskiCurveView>(R.id.scv) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_go_card)
@@ -40,8 +41,8 @@ class GoCardActivity : AppCompatActivity() {
     private fun changeCameraDistance() {
         val distance = 180000
         val scale = resources.displayMetrics.density * distance
-        cvGoCardFront.cameraDistance = scale
-        cvGoCardBack.cameraDistance = scale
+        findViewById<FrameLayout>(R.id.cvGoCardFront).cameraDistance = scale
+        findViewById<FrameLayout>(R.id.cvGoCardBack).cameraDistance = scale
     }
 
     private fun flipCard() {

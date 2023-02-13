@@ -11,6 +11,18 @@
     app:layoutDescription="@xml/gopher_animation_scene">
 
     <ImageView
+            android:id="@+id/ivGopher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivSemicircle"
+            app:srcCompat="@drawable/ic_gopher" />
+
+    <ImageView
         android:id="@+id/ivSemicircle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,23 +46,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/ivGopher"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivSemicircle"
-        app:srcCompat="@drawable/ic_gopher" />
-
-    <ImageView
         android:id="@+id/ivSceneCircleMask"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="103dp"
         android:alpha="0.0"
+        tools:alpha="1.0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/ivSemicircle"
