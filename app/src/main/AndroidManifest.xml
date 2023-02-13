@@ -10,6 +10,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity
+                android:name=".compost.CompostActivity"
+                android:exported="false"
+                android:label="@string/title_activity_compost"
+                android:theme="@style/AppThemeCompost" />
         <activity android:name=".card.GoCardActivity" />
         <activity
                 android:name=".trigan.TriganActivity"
@@ -18,8 +23,8 @@
         <activity android:name=".power.GolangPowerActivity" />
         <activity
                 android:name=".MainActivity"
-                android:screenOrientation="fullSensor"
-                android:exported="true">
+                android:exported="true"
+                android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

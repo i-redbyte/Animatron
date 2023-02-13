@@ -4,6 +4,8 @@
     <string name="main_gophers">Gophers</string>
     <string name="main_trigan">Sweet trigonometry</string>
     <string name="main_go_card">Go card</string>
+    <string name="compost">Compost</string>
     <string name="go_power">Go!</string>
     <string name="error_null_metrics">Metrics is null</string>
+    <string name="title_activity_compost">Compost</string>
 </resources>

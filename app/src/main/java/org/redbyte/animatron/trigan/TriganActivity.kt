@@ -48,6 +48,6 @@ class TriganActivity : AppCompatActivity() {
     companion object {
         const val COSMO_DURATION = 16500L
         const val INC_VALUE = 2.4f
-        fun open(context: Context): Intent = Intent(context, TriganActivity::class.java)
+        fun newInstance(context: Context): Intent = Intent(context, TriganActivity::class.java)
     }
 }

@@ -62,6 +62,6 @@ class GoCardActivity : AppCompatActivity() {
     }
 
     companion object{
-        fun open(context: Context): Intent = Intent(context, GoCardActivity::class.java)
+        fun newInstance(context: Context): Intent = Intent(context, GoCardActivity::class.java)
     }
 }

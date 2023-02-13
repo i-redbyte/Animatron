@@ -43,7 +43,7 @@ class ScrollmanActivity : AppCompatActivity() {
 
     companion object {
         const val STOP_POSITION = 10
-        fun open(context: Context): Intent = Intent(context, ScrollmanActivity::class.java)
+        fun newInstance(context: Context): Intent = Intent(context, ScrollmanActivity::class.java)
     }
 }
 
