@@ -26,14 +26,14 @@ class CompostActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    showCircleAnimation()
+                    ShowCircleAnimation()
                 }
             }
         }
     }
 
     @Composable
-    private fun showCircleAnimation() {
+    private fun ShowCircleAnimation() {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
