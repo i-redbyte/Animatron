@@ -28,7 +28,7 @@ class LifeGameActivity : AppCompatActivity() {
     }
 
     private fun startGame() {
-        delayFlow(175.milliseconds, 2.seconds) { getNextStatus() }.onEach {
+        delayFlow(175.milliseconds) { getNextStatus() }.onEach {
             world.setChangedList(it)
             world.invalidate()
         }.launchIn(lifecycleScope)

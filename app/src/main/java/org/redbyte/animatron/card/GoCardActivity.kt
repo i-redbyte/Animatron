@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import org.redbyte.animatron.R
-import org.redbyte.animatron.trigan.SierpinskiCurveView
+import org.redbyte.animatron.sierpinski.SierpinskiCurveView
 
 class GoCardActivity : AppCompatActivity() {
     private lateinit var mSetRightOut: AnimatorSet

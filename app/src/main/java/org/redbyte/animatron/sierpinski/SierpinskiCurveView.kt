@@ -1,4 +1,4 @@
-package org.redbyte.animatron.trigan
+package org.redbyte.animatron.sierpinski
 
 import android.content.Context
 import android.graphics.Canvas
