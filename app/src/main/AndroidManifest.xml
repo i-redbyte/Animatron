@@ -11,6 +11,9 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
+                android:name=".life.LifeGameActivity"
+                android:exported="false" />
+        <activity
                 android:name=".compost.CompostActivity"
                 android:exported="false"
                 android:label="@string/title_activity_compost"

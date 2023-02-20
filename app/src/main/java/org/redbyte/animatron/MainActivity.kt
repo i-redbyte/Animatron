@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import org.redbyte.animatron.card.GoCardActivity
 import org.redbyte.animatron.compost.CompostActivity
+import org.redbyte.animatron.life.LifeGameActivity
 import org.redbyte.animatron.power.GolangPowerActivity
 import org.redbyte.animatron.scrollman.ScrollmanActivity
 import org.redbyte.animatron.trigan.TriganActivity
@@ -29,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnCompost).setOnClickListener {
             startActivity(CompostActivity.newInstance(this))
+        }
+        findViewById<Button>(R.id.btnLifeGame).setOnClickListener {
+            startActivity(LifeGameActivity.newInstance(this))
         }
     }
 }
