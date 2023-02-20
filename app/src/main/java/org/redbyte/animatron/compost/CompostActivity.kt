@@ -40,7 +40,7 @@ class CompostActivity : ComponentActivity() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            AnimationArc()
+            AnimationCircle()
         }
     }
 
