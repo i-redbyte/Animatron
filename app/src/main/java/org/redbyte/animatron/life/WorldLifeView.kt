@@ -69,10 +69,10 @@ class WorldLifeView @JvmOverloads constructor(
                         deadColor
                     }
                     // rectangle draw
-    //                    canvas.drawRect(rect, paint)
+                    // canvas.drawRect(rect, paint)
+
                     // Circle draw
-                    val rad = min(rect.width(), rect.height()) * 0.5f
-                    canvas.drawRoundRect(RectF(rect),rad, rad, paint)
+                    canvas.drawRoundRect(RectF(rect),rect.height() * 0.5f, rect.height() * 0.5f, paint)
                 }
             }
         }

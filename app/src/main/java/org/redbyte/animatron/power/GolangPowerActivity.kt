@@ -15,7 +15,7 @@ import org.redbyte.animatron.power.animatron.PlainAnimationListener
 import org.redbyte.animatron.power.animatron.PlainAnimatorListener
 import org.redbyte.animatron.power.animatron.PlainTransitionListener
 
-private const val DELTA_Y = 580
+private const val DELTA_Y = 780
 
 class GolangPowerActivity : AppCompatActivity() {
     private val btnNext by lazy { findViewById<Button>(R.id.btnNext) }
