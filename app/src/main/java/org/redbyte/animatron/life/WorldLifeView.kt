@@ -5,6 +5,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import android.view.WindowManager
+import kotlin.math.min
 import kotlin.properties.Delegates
 
 typealias MatrixWorld = Array<IntArray>
@@ -37,7 +38,6 @@ class WorldLifeView @JvmOverloads constructor(
     var rowSize = screenHeight / cellSize
     var matrix: MatrixWorld = MatrixWorld(columnSize) { IntArray(rowSize) }
 
-
     fun setChangedList(matrix: MatrixWorld) {
         this.matrix = matrix
     }
@@ -68,7 +68,11 @@ class WorldLifeView @JvmOverloads constructor(
                     } else {
                         deadColor
                     }
-                    canvas.drawRect(rect, paint)
+                    // rectangle draw
+    //                    canvas.drawRect(rect, paint)
+                    // Circle draw
+                    val rad = min(rect.width(), rect.height()) * 0.5f
+                    canvas.drawRoundRect(RectF(rect),rad, rad, paint)
                 }
             }
         }
