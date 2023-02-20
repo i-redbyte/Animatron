@@ -30,9 +30,9 @@ class WorldLifeView @JvmOverloads constructor(
 
     private val paint = Paint()
     private val rect = Rect()
-    private val liveColor = Color.RED
+    private val liveColor = Color.parseColor("#7ACC08")
     private val deadColor = Color.WHITE
-    private var cellSize = screenWidth / 32
+    private var cellSize = screenWidth / 64
     var columnSize = screenWidth / cellSize
     var rowSize = screenHeight / cellSize
     var matrix: MatrixWorld = MatrixWorld(columnSize) { IntArray(rowSize) }
