@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import org.redbyte.animatron.R
-import org.redbyte.animatron.ext.hideKeyboard
+import org.redbyte.animatron.base.extensions.hideKeyboard
 import java.lang.Exception
 
 class SierpinskiCurveActivity : AppCompatActivity() {

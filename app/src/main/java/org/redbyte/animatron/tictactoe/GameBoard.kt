@@ -26,6 +26,30 @@ class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
     private var board: Board = List(3) { i -> List(3) { j -> GameCell(i, j, 0) } }
     private var currentPlayer = 1
     var action: PlayerAction = {}
+    var isPlayGame = true
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        //if (!isPlayGame) return false
+        if (event.action == MotionEvent.ACTION_DOWN) {
+            val cellWidth = width / 3
+            val cellHeight = height / 3
+            val i = (event.y / cellHeight).toInt()
+            val j = (event.x / cellWidth).toInt()
+
+            if (isCellEmpty(i, j)) {
+                board = updateBoard(i, j)
+                currentPlayer = 3 - currentPlayer
+                val isWinner = GameLogic.isGameFinished(board)
+                        && GameLogic.getWinningLine(board).isNotEmpty()
+                val isFinish = GameLogic.isGameFinished(board)
+                val player = if (currentPlayer == 2) Cross(isWinner, isFinish)
+                else Zero(isWinner, isFinish)
+                action(player)
+                invalidate()
+            }
+        }
+        return isPlayGame
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val width = width.toFloat()
@@ -41,38 +65,50 @@ class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
                 2 -> drawO(canvas, cell, cellWidth, cellHeight)
             }
         }
+
+        if (GameLogic.getWinningLine(board).isNotEmpty()) {
+            val winningLine = GameLogic.getWinningLine(board)
+            drawWinningLine(canvas, winningLine, cellWidth, cellHeight)
+        }
     }
 
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_DOWN) {
-            val cellWidth = width / 3
-            val cellHeight = height / 3
-            val i = (event.y / cellHeight).toInt()
-            val j = (event.x / cellWidth).toInt()
-
-            if (isCellEmpty(i, j)) {
-                board = updateBoard(i, j)
-                currentPlayer = 3 - currentPlayer
-                val player = if (currentPlayer == 2) Cross(GameLogic.isGameFinished(board))
-                else Zero(GameLogic.isGameFinished(board))
-                action(player)
-                invalidate()
-            }
-
-            if (GameLogic.isGameFinished(board)) {
-                // Handle game over (win or draw)
-                resetGame()
-            }
+    private fun drawWinningLine(
+        canvas: Canvas,
+        line: List<Pair<Int, Int>>,
+        cellWidth: Float,
+        cellHeight: Float
+    ) {
+        val paint = Paint().apply {
+            color = Color.GREEN
+            strokeWidth = 14f
         }
-        return true
+
+        val startX = line.first().second * cellWidth + cellWidth / 2
+        val startY = line.first().first * cellHeight + cellHeight / 2
+        val endX = line.last().second * cellWidth + cellWidth / 2
+        val endY = line.last().first * cellHeight + cellHeight / 2
+
+        canvas.drawLine(startX, startY, endX, endY, paint)
     }
 
     private fun drawBoard(canvas: Canvas, cellWidth: Float, cellHeight: Float) {
         (1 until 3).forEach {
             // Horizontal lines
-            canvas.drawLine(0f, it * cellHeight, width.toFloat(), it * cellHeight, paint)
+            canvas.drawLine(
+                0f,
+                it * cellHeight,
+                width.toFloat(),
+                it * cellHeight,
+                paint
+            )
             // Vertical lines
-            canvas.drawLine(it * cellWidth, 0f, it * cellWidth, height.toFloat(), paint)
+            canvas.drawLine(
+                it * cellWidth,
+                0f,
+                it * cellWidth,
+                height.toFloat(),
+                paint
+            )
         }
     }
 
@@ -109,13 +145,13 @@ class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
         }
     }
 
-    private fun resetGame() {
+    fun resetGame() {
         board = List(3) { i -> List(3) { j -> GameCell(i, j, 0) } }
         currentPlayer = 1
     }
 }
 
-sealed class ActionGame(val isWinner: Boolean) {
-    class Cross(isWinner: Boolean) : ActionGame(isWinner)
-    class Zero(isWinner: Boolean) : ActionGame(isWinner)
+sealed class ActionGame(val isWinner: Boolean, val isFinish: Boolean) {
+    class Cross(isWinner: Boolean, isFinish: Boolean) : ActionGame(isWinner, isFinish)
+    class Zero(isWinner: Boolean, isFinish: Boolean) : ActionGame(isWinner, isFinish)
 }

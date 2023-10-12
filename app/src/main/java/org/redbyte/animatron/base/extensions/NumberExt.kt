@@ -7,3 +7,13 @@ fun Int.resDrawableArray(context: Context, index: Int, block: (drawableResId: In
     block(array.getResourceId(index, -1))
     array.recycle()
 }
+fun <T> List<List<T>>.transpose(): List<List<T>> {
+    if (isEmpty()) return emptyList()
+    val width = first().size
+    val height = size
+    return List(width) { col ->
+        List(height) { row ->
+            this[row][col]
+        }
+    }
+}

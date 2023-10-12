@@ -1,4 +1,4 @@
-package org.redbyte.animatron.ext
+package org.redbyte.animatron.base.extensions
 
 import android.app.Activity
 import android.content.Context

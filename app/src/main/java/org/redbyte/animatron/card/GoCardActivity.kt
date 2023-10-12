@@ -8,8 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import org.redbyte.animatron.R
-import org.redbyte.animatron.ext.onClick
-import org.redbyte.animatron.sierpinski.SierpinskiCurveView
+import org.redbyte.animatron.base.extensions.onClick
 
 class GoCardActivity : AppCompatActivity() {
     private lateinit var mSetRightOut: AnimatorSet
