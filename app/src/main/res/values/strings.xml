@@ -9,4 +9,9 @@
     <string name="error_null_metrics">Metrics is null</string>
     <string name="title_activity_compost">Compost</string>
     <string name="life_game">LIFE GAME</string>
+    <string name="tic_tac_toe">Tic Tac Toe</string>
+    <string name="sierpinski_curve">Sierpinski Curve</string>
+    <string name="curve_level">set curve level</string>
+    <string name="ok">OK</string>
+    <string name="error_curve_level">Not valid level value</string>
 </resources>

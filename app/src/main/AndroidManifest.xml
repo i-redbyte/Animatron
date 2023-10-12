@@ -2,31 +2,37 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-            android:name=".App"
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
-                android:name=".life.LifeGameActivity"
-                android:exported="false" />
+            android:name=".sierpinski.SierpinskiCurveActivity"
+            android:exported="false" />
         <activity
-                android:name=".compost.CompostActivity"
-                android:exported="false"
-                android:label="@string/title_activity_compost"
-                android:theme="@style/AppThemeCompost" />
+            android:name=".tictactoe.TicTacToeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".life.LifeGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".compost.CompostActivity"
+            android:exported="false"
+            android:label="@string/title_activity_compost"
+            android:theme="@style/AppThemeCompost" />
         <activity android:name=".card.GoCardActivity" />
         <activity
-                android:name=".trigan.TriganActivity"
-                android:screenOrientation="landscape" />
+            android:name=".trigan.TriganActivity"
+            android:screenOrientation="landscape" />
         <activity android:name=".scrollman.ScrollmanActivity" />
         <activity android:name=".power.GolangPowerActivity" />
         <activity
-                android:name=".MainActivity"
-                android:exported="true"
-                android:screenOrientation="fullSensor">
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

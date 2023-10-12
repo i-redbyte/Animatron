@@ -15,8 +15,7 @@ class GoCardActivity : AppCompatActivity() {
     private lateinit var mSetLeftIn: AnimatorSet
     private var mIsBackVisible = false
     private val cvGoCardFront by lazy { findViewById<FrameLayout>(R.id.cvGoCardFront) }
-    private val cvGoCardBack by lazy {  findViewById<FrameLayout>(R.id.cvGoCardBack) }
-    private val scv by lazy {  findViewById<SierpinskiCurveView>(R.id.scv) }
+    private val cvGoCardBack by lazy { findViewById<FrameLayout>(R.id.cvGoCardBack) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_go_card)
@@ -27,7 +26,6 @@ class GoCardActivity : AppCompatActivity() {
     private fun setupViews() {
         cvGoCardFront.setOnClickListener { flipCard() }
         cvGoCardBack.setOnClickListener { flipCard() }
-        scv.setColor(getColor(R.color.colorYellow))
     }
 
     private fun setupAnimation() {
@@ -61,7 +59,7 @@ class GoCardActivity : AppCompatActivity() {
         }
     }
 
-    companion object{
+    companion object {
         fun newInstance(context: Context): Intent = Intent(context, GoCardActivity::class.java)
     }
 }

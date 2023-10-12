@@ -7,19 +7,25 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorInt
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.redbyte.animatron.R
 import org.redbyte.animatron.base.extensions.dp
+import java.lang.Math.PI
 
 class SierpinskiCurveView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
-    private var level = 3
+    private var level = 0
     private val paint = Paint()
     private var baseX = 0f
     private var baseY = 0f
-    private var distance: Int = 250.dp()
+    private var distance: Int = 0//(40* 1.6).toInt()
     private lateinit var canvas: Canvas
 
     //TODO: Make customization through attributes
@@ -34,8 +40,8 @@ class SierpinskiCurveView @JvmOverloads constructor(
             0
         ).apply {
             try {
-                level = getInteger(R.styleable.SierpinskiCurveView_level, 3)
-                distance = getDimension(R.styleable.SierpinskiCurveView_distance, 0.0f).toInt()
+                level = getInteger(R.styleable.SierpinskiCurveView_level, 0)
+                distance = getDimension(R.styleable.SierpinskiCurveView_distance, 0f).toInt()
             } finally {
                 recycle()
             }
@@ -50,27 +56,80 @@ class SierpinskiCurveView @JvmOverloads constructor(
 
     fun setCurveLevel(level: Int) {
         this.level = level
+        if (distance == 0) distance = (40 * PI).toInt()
+        distance = (10 * (level * ((PI / 2) * level))).toInt()
+        invalidate()
     }
+
 
     fun setColor(@ColorInt color: Int) {
         paint.color = color
     }
 
     private fun drawSierpinskiCurve() {
-        for (i in level downTo 1) distance /= 2
-        //Todo: change to center view?
-        //      xx = x + width / curveOrder
-        //      yy = y + height / curveOrder
+        var tempDistance = distance
+        for (i in level downTo 1) tempDistance /= 2
+
+        baseX = 8.dp().toFloat()
+        baseY = 8.dp().toFloat()
 
         moveToXY(8.dp(), 8.dp())
-        curveFirst(level)
-        lineRel(+distance, +distance)
-        curveSecond(level)
-        lineRel(-distance, +distance)
-        curveThird(level)
-        lineRel(-distance, -distance)
-        curveFourth(level)
-        lineRel(+distance, -distance)
+        curveFirst(level, tempDistance)
+        lineRel(+tempDistance, +tempDistance)
+        curveSecond(level, tempDistance)
+        lineRel(-tempDistance, +tempDistance)
+        curveThird(level, tempDistance)
+        lineRel(-tempDistance, -tempDistance)
+        curveFourth(level, tempDistance)
+        lineRel(+tempDistance, -tempDistance)
+    }
+
+    private fun curveFirst(level: Int, distance: Int) {
+        if (level > 0) {
+            curveFirst(level - 1, distance)
+            lineRel(+distance, +distance)
+            curveSecond(level - 1, distance)
+            lineRel(+2 * distance, 0)
+            curveFourth(level - 1, distance)
+            lineRel(+distance, -distance)
+            curveFirst(level - 1, distance)
+        }
+    }
+
+    private fun curveSecond(level: Int, distance: Int) {
+        if (level > 0) {
+            curveSecond(level - 1, distance)
+            lineRel(-distance, +distance)
+            curveThird(level - 1, distance)
+            lineRel(0, +2 * distance)
+            curveFirst(level - 1, distance)
+            lineRel(+distance, +distance)
+            curveSecond(level - 1, distance)
+        }
+    }
+
+    private fun curveThird(level: Int, distance: Int) {
+        if (level > 0) {
+            curveThird(level - 1, distance)
+            lineRel(-distance, -distance)
+            curveFourth(level - 1, distance)
+            lineRel(-2 * distance, 0)
+            curveSecond(level - 1, distance)
+            lineRel(-distance, +distance)
+            curveThird(level - 1, distance)
+        }
+    }
+
+    private fun curveFourth(level: Int, distance: Int) {
+        if (level > 0) {
+            curveFourth(level - 1, distance)
+            lineRel(+distance, -distance)
+            curveFirst(level - 1, distance)
+            lineRel(0, -2 * distance)
+            curveThird(level - 1, distance)
+            lineRel(-distance, -distance)
+            curveFourth(level - 1, distance)
+        }
     }
 
     private fun lineRel(offestX: Int, offsetY: Int) {
@@ -82,54 +141,6 @@ class SierpinskiCurveView @JvmOverloads constructor(
     private fun moveToXY(x: Int, y: Int) {
         baseX = x.toFloat()
         baseY = y.toFloat()
-    }
-
-    private fun curveFirst(level: Int) {
-        if (level > 0) {
-            curveFirst(level - 1)
-            lineRel(+distance, +distance)
-            curveSecond(level - 1)
-            lineRel(+2 * distance, 0)
-            curveFourth(level - 1)
-            lineRel(+distance, -distance)
-            curveFirst(level - 1)
-        }
-    }
-
-    private fun curveSecond(level: Int) {
-        if (level > 0) {
-            curveSecond(level - 1)
-            lineRel(-distance, +distance)
-            curveThird(level - 1)
-            lineRel(0, +2 * distance)
-            curveFirst(level - 1)
-            lineRel(+distance, +distance)
-            curveSecond(level - 1)
-        }
-    }
-
-    private fun curveThird(level: Int) {
-        if (level > 0) {
-            curveThird(level - 1)
-            lineRel(-distance, -distance)
-            curveFourth(level - 1)
-            lineRel(-2 * distance, 0)
-            curveSecond(level - 1)
-            lineRel(-distance, +distance)
-            curveThird(level - 1)
-        }
-    }
-
-    private fun curveFourth(level: Int) {
-        if (level > 0) {
-            curveFourth(level - 1)
-            lineRel(+distance, -distance)
-            curveFirst(level - 1)
-            lineRel(0, -2 * distance)
-            curveThird(level - 1)
-            lineRel(-distance, -distance)
-            curveFourth(level - 1)
-        }
     }
 
 }

@@ -9,6 +9,8 @@ import org.redbyte.animatron.compost.CompostActivity
 import org.redbyte.animatron.life.LifeGameActivity
 import org.redbyte.animatron.power.GolangPowerActivity
 import org.redbyte.animatron.scrollman.ScrollmanActivity
+import org.redbyte.animatron.sierpinski.SierpinskiCurveActivity
+import org.redbyte.animatron.tictactoe.TicTacToeActivity
 import org.redbyte.animatron.trigan.TriganActivity
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +35,12 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnLifeGame).setOnClickListener {
             startActivity(LifeGameActivity.newInstance(this))
+        }
+        findViewById<Button>(R.id.btnTicTacToe).setOnClickListener {
+            startActivity(TicTacToeActivity.newInstance(this))
+        }
+        findViewById<Button>(R.id.btnSierpinskiCurve).setOnClickListener {
+            startActivity(SierpinskiCurveActivity.newInstance(this))
         }
     }
 }
