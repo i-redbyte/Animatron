@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import org.redbyte.animatron.R
+import org.redbyte.animatron.ext.onClick
 import org.redbyte.animatron.sierpinski.SierpinskiCurveView
 
 class GoCardActivity : AppCompatActivity() {
@@ -24,8 +25,8 @@ class GoCardActivity : AppCompatActivity() {
     }
 
     private fun setupViews() {
-        cvGoCardFront.setOnClickListener { flipCard() }
-        cvGoCardBack.setOnClickListener { flipCard() }
+        cvGoCardFront.onClick(1550) { flipCard() }
+        cvGoCardBack.onClick(1550) { flipCard() }
     }
 
     private fun setupAnimation() {
