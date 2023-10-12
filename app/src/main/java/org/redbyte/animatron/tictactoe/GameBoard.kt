@@ -7,10 +7,14 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import org.redbyte.animatron.tictactoe.ActionGame.Cross
+import org.redbyte.animatron.tictactoe.ActionGame.Zero
 
 data class GameCell(val x: Int, val y: Int, val player: Int)
 
 typealias Board = List<List<GameCell>>
+
+typealias PlayerAction = (ActionGame) -> Unit
 
 class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
@@ -21,7 +25,7 @@ class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     private var board: Board = List(3) { i -> List(3) { j -> GameCell(i, j, 0) } }
     private var currentPlayer = 1
-
+    var action: PlayerAction = {}
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val width = width.toFloat()
@@ -49,6 +53,9 @@ class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
             if (isCellEmpty(i, j)) {
                 board = updateBoard(i, j)
                 currentPlayer = 3 - currentPlayer
+                val player = if (currentPlayer == 2) Cross(GameLogic.isGameFinished(board))
+                else Zero(GameLogic.isGameFinished(board))
+                action(player)
                 invalidate()
             }
 
@@ -106,4 +113,9 @@ class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
         board = List(3) { i -> List(3) { j -> GameCell(i, j, 0) } }
         currentPlayer = 1
     }
+}
+
+sealed class ActionGame(val isWinner: Boolean) {
+    class Cross(isWinner: Boolean) : ActionGame(isWinner)
+    class Zero(isWinner: Boolean) : ActionGame(isWinner)
 }

@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import org.redbyte.animatron.compost.ui.AnimationArc
+import org.redbyte.animatron.compost.ui.AnimationCircle
 import org.redbyte.animatron.compost.ui.theme.AnimatronTheme
 
 class CompostActivity : ComponentActivity() {
@@ -41,6 +42,7 @@ class CompostActivity : ComponentActivity() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             AnimationCircle()
+            //AnimationArc()
         }
     }
 

@@ -1,4 +1,4 @@
-package org.redbyte.animatron.compost
+package org.redbyte.animatron.compost.ui
 
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
