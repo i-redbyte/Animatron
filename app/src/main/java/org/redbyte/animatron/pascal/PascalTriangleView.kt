@@ -5,6 +5,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import org.redbyte.animatron.R
 
@@ -19,6 +21,9 @@ class PascalTriangleView @JvmOverloads constructor(
     private var itemTextColor: Int = 0
     private var itemColor: Int = 0
     private val triangleValues: MutableList<List<Int>> = mutableListOf()
+    private var lastTouchedRow: Int = -1
+    private var lastTouchedColumn: Int = -1
+    var itemClick: (Int) -> Unit = {}
 
     init {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.PascalTriangleView)
@@ -52,25 +57,49 @@ class PascalTriangleView @JvmOverloads constructor(
         }
     }
 
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                val cellSize = width.toFloat() / (triangleHeight + 1)
+                for (i in triangleValues.size - 1 downTo 0) {
+                    val y = (triangleHeight - i) * cellSize
+                    for (j in 0 until triangleValues[i].size) {
+                        val startX = width / cellSize + (cellSize * i * 0.5f)
+                        val x = (startX + (j + 0.5f) * cellSize)
+                        if (event.x >= x - cellSize / 2 && event.x <= x + cellSize / 2
+                            && event.y >= y - cellSize / 2 && event.y <= y + cellSize / 2
+                        ) {
+                            lastTouchedRow = i
+                            lastTouchedColumn = j
+                            itemClick(triangleValues[i][j])
+                            invalidate()
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        return super.onTouchEvent(event)
+    }
+
     private fun drawPascalTriangle(canvas: Canvas) {
         val cellSize = width.toFloat() / (triangleHeight + 1)
 
-        for (i in triangleValues.size-1 downTo  0) {
+        for (i in triangleValues.size - 1 downTo 0) {
             val y = (triangleHeight - i) * cellSize
             for (j in 0 until triangleValues[i].size) {
-                val startX = width / cellSize + (cellSize*i*0.5f)
+                val startX = width / cellSize + (cellSize * i * 0.5f)
                 val x = (startX + (j + 0.5f) * cellSize)
-                    val text = triangleValues[i][j].toString()
-                    drawCircleAndText(canvas, x, y, cellSize / 2, text)
+                val text = triangleValues[i][j].toString()
+                drawCircleAndText(canvas, x, y, cellSize / 2, text)
             }
         }
     }
 
     private fun drawCircleAndText(canvas: Canvas, x: Float, y: Float, radius: Float, text: String) {
-        paint.color = itemColor//Color.BLACK
+        paint.color = itemColor
         canvas.drawCircle(x, y, radius, paint)
-
-        paint.color = itemTextColor//Color.WHITE
+        paint.color = itemTextColor
         paint.textSize = radius
         paint.textAlign = Paint.Align.CENTER
         val yPos = y + (paint.textSize) / 2

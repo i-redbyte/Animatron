@@ -4,12 +4,16 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import org.redbyte.animatron.R
 
 class PascalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pascal)
+        findViewById<PascalTriangleView>(R.id.triangle).itemClick = {
+            Toast.makeText(this, "Select value: $it", Toast.LENGTH_SHORT).show()
+        }
     }
 
     companion object {
