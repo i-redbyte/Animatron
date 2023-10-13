@@ -1,13 +1,15 @@
 package org.redbyte.animatron.pascal
 
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.view.animation.DecelerateInterpolator
 import org.redbyte.animatron.R
 
 class PascalTriangleView @JvmOverloads constructor(
@@ -23,6 +25,16 @@ class PascalTriangleView @JvmOverloads constructor(
     private val triangleValues: MutableList<List<Int>> = mutableListOf()
     private var lastTouchedRow: Int = -1
     private var lastTouchedColumn: Int = -1
+    private var rotationAnimator: ObjectAnimator? = null
+    private var privateSelectedRotationDegrees: Float = 360f
+
+    var rotationDegrees: Float
+        get() = privateSelectedRotationDegrees
+        set(value) {
+            privateSelectedRotationDegrees = value
+            invalidate()
+        }
+
     var itemClick: (Int) -> Unit = {}
 
     init {
@@ -50,13 +62,7 @@ class PascalTriangleView @JvmOverloads constructor(
         triangleValues.reverse()
     }
 
-    override fun onDraw(canvas: Canvas?) {
-        super.onDraw(canvas)
-        canvas?.apply {
-            drawPascalTriangle(this)
-        }
-    }
-
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -71,6 +77,7 @@ class PascalTriangleView @JvmOverloads constructor(
                         ) {
                             lastTouchedRow = i
                             lastTouchedColumn = j
+                            animateSelectedItem()
                             itemClick(triangleValues[i][j])
                             invalidate()
                             return true
@@ -82,9 +89,49 @@ class PascalTriangleView @JvmOverloads constructor(
         return super.onTouchEvent(event)
     }
 
+    override fun onDraw(canvas: Canvas?) {
+        super.onDraw(canvas)
+        canvas?.apply {
+            drawPascalTriangle(this)
+            drawSelectedItemWithRotation(this)
+        }
+    }
+
+    private fun animateSelectedItem() {
+        rotationAnimator?.cancel()
+        rotationAnimator = ObjectAnimator.ofFloat(
+            this,
+            "rotationDegrees",
+            0f,
+            rotationDegrees
+        )
+        rotationAnimator?.duration = 777
+        rotationAnimator?.interpolator = DecelerateInterpolator()
+        rotationAnimator?.start()
+    }
+
+    private fun drawSelectedItemWithRotation(canvas: Canvas) {
+        if (lastTouchedRow >= 0 && lastTouchedColumn >= 0) {
+            val cellSize = width.toFloat() / (triangleHeight + 1)
+            val y = (triangleHeight - lastTouchedRow) * cellSize
+            val startX = width / cellSize + (cellSize * lastTouchedRow * 0.5f)
+            val x = (startX + (lastTouchedColumn + 0.5f) * cellSize)
+
+            canvas.save()
+            canvas.rotate(rotationDegrees, x, y)
+            drawCircleAndText(
+                canvas,
+                x,
+                y,
+                cellSize / 2,
+                triangleValues[lastTouchedRow][lastTouchedColumn].toString()
+            )
+            canvas.restore()
+        }
+    }
+
     private fun drawPascalTriangle(canvas: Canvas) {
         val cellSize = width.toFloat() / (triangleHeight + 1)
-
         for (i in triangleValues.size - 1 downTo 0) {
             val y = (triangleHeight - i) * cellSize
             for (j in 0 until triangleValues[i].size) {
@@ -96,7 +143,13 @@ class PascalTriangleView @JvmOverloads constructor(
         }
     }
 
-    private fun drawCircleAndText(canvas: Canvas, x: Float, y: Float, radius: Float, text: String) {
+    private fun drawCircleAndText(
+        canvas: Canvas,
+        x: Float,
+        y: Float,
+        radius: Float,
+        text: String
+    ) {
         paint.color = itemColor
         canvas.drawCircle(x, y, radius, paint)
         paint.color = itemTextColor

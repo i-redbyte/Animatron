@@ -11,7 +11,9 @@ class PascalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pascal)
-        findViewById<PascalTriangleView>(R.id.triangle).itemClick = {
+        val pascal = findViewById<PascalTriangleView>(R.id.triangle)
+        pascal.rotationDegrees = 180f
+        pascal.itemClick = {
             Toast.makeText(this, "Select value: $it", Toast.LENGTH_SHORT).show()
         }
     }
