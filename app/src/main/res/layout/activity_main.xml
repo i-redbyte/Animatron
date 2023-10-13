@@ -104,5 +104,17 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnTicTacToe" />
 
+        <Button
+            android:id="@+id/btnPascal"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_main"
+            android:text="@string/pascal_triangle"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSierpinskiCurve" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

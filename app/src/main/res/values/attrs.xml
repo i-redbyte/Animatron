@@ -4,4 +4,9 @@
         <attr name="level" format="integer" />
         <attr name="distance" format="dimension" />
     </declare-styleable>
+    <declare-styleable name="PascalTriangleView">
+        <attr name="triangleHeight" format="integer" />
+        <attr name="itemColor" format="color" />
+        <attr name="itemTextColor" format="color" />
+    </declare-styleable>
 </resources>
