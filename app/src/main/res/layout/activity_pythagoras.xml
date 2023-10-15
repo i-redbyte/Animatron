@@ -11,8 +11,9 @@
         android:layout_height="wrap_content"
         app:endColor="@color/colorRed"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:maxDepth="11"
+        app:maxDepth="12"
         app:startColor="@color/purple_700" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
