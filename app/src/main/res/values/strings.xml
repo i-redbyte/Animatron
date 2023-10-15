@@ -16,4 +16,5 @@
     <string name="error_curve_level">Not valid level value</string>
     <string name="new_game">NEW GAME</string>
     <string name="pascal_triangle">Pascal triangle</string>
+    <string name="pythagoras_tree">Pythagoras tree</string>
 </resources>

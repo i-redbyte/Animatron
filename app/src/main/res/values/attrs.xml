@@ -9,4 +9,9 @@
         <attr name="itemColor" format="color" />
         <attr name="itemTextColor" format="color" />
     </declare-styleable>
+    <declare-styleable name="PythagorasTreeView">
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="maxDepth" format="integer" />
+    </declare-styleable>
 </resources>

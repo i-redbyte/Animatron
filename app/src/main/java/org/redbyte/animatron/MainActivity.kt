@@ -9,6 +9,7 @@ import org.redbyte.animatron.compost.CompostActivity
 import org.redbyte.animatron.life.LifeGameActivity
 import org.redbyte.animatron.pascal.PascalActivity
 import org.redbyte.animatron.power.GolangPowerActivity
+import org.redbyte.animatron.pythagoras.PythagorasActivity
 import org.redbyte.animatron.scrollman.ScrollmanActivity
 import org.redbyte.animatron.sierpinski.SierpinskiCurveActivity
 import org.redbyte.animatron.tictactoe.TicTacToeActivity
@@ -45,6 +46,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnPascal).setOnClickListener {
             startActivity(PascalActivity.newInstance(this))
+        }
+        findViewById<Button>(R.id.btnPythagoras).setOnClickListener {
+            startActivity(PythagorasActivity.newInstance(this))
         }
     }
 }

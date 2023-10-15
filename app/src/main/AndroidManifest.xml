@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".pythagoras.PythagorasActivity"
+            android:exported="false" />
+        <activity
             android:name=".pascal.PascalActivity"
             android:exported="false" />
         <activity
