@@ -28,7 +28,7 @@ class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
     var action: PlayerAction = {}
     var isPlayGame = true
     override fun onTouchEvent(event: MotionEvent): Boolean {
-        //if (!isPlayGame) return false
+        if (!isPlayGame) return false
         if (event.action == MotionEvent.ACTION_DOWN) {
             val cellWidth = width / 3
             val cellHeight = height / 3
@@ -47,7 +47,7 @@ class GameBoard(context: Context, attrs: AttributeSet) : View(context, attrs) {
                 invalidate()
             }
         }
-        return isPlayGame
+        return true
     }
 
     override fun onDraw(canvas: Canvas) {
