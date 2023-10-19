@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import org.redbyte.animatron.card.GoCardActivity
 import org.redbyte.animatron.compost.CompostActivity
+import org.redbyte.animatron.koch.KochSnowActivity
 import org.redbyte.animatron.life.LifeGameActivity
 import org.redbyte.animatron.pascal.PascalActivity
 import org.redbyte.animatron.power.GolangPowerActivity
@@ -49,6 +50,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnPythagoras).setOnClickListener {
             startActivity(PythagorasActivity.newInstance(this))
+        }
+        findViewById<Button>(R.id.btnKochSnow).setOnClickListener {
+            startActivity(KochSnowActivity.newInstance(this))
         }
     }
 }

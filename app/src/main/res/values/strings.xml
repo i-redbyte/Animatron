@@ -17,4 +17,5 @@
     <string name="new_game">NEW GAME</string>
     <string name="pascal_triangle">Pascal triangle</string>
     <string name="pythagoras_tree">Pythagoras tree</string>
+    <string name="koch_snow">Koch Snow</string>
 </resources>

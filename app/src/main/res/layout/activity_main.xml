@@ -128,5 +128,17 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnPascal" />
 
+        <Button
+            android:id="@+id/btnKochSnow"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_main"
+            android:text="@string/koch_snow"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnPythagoras" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="startColor" format="color" />
+    <attr name="endColor" format="color" />
+    <attr name="level" format="integer" />
     <declare-styleable name="SierpinskiCurveView">
-        <attr name="level" format="integer" />
+        <attr name="level" />
         <attr name="distance" format="dimension" />
     </declare-styleable>
     <declare-styleable name="PascalTriangleView">
@@ -10,8 +13,13 @@
         <attr name="itemTextColor" format="color" />
     </declare-styleable>
     <declare-styleable name="PythagorasTreeView">
-        <attr name="startColor" format="color" />
-        <attr name="endColor" format="color" />
+        <attr name="startColor" />
+        <attr name="endColor" />
         <attr name="maxDepth" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="KochSnowView">
+        <attr name="startColor" />
+        <attr name="endColor" />
+        <attr name="level" />
     </declare-styleable>
 </resources>
