@@ -6,23 +6,48 @@ import android.util.AttributeSet
 import android.view.View
 import org.redbyte.animatron.R
 import kotlin.math.sqrt
+import android.animation.ValueAnimator
+
 
 class KochSnowView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
-    private var level: Int = 0
+    private var level: Int = 3
     private var startColor: Int = 0
     private var endColor: Int = 0
 
     private val paint = Paint().apply {
-        strokeWidth = 8f
+        strokeWidth = 16f
     }
+
+    private val animator: ValueAnimator
 
     init {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.KochSnowView)
         startColor = typedArray.getColor(R.styleable.KochSnowView_startColor, 0)
         endColor = typedArray.getColor(R.styleable.KochSnowView_endColor, 0)
-        level = typedArray.getInt(R.styleable.KochSnowView_level, 0)
+        level = typedArray.getColor(R.styleable.KochSnowView_level, level)
+        animator = ValueAnimator
+            .ofInt(0, level)
+            .apply {
+                duration = 1100 // Set the duration of the animation (in milliseconds)
+                repeatCount = ValueAnimator.INFINITE
+                repeatMode = ValueAnimator.REVERSE
+                addUpdateListener { animation ->
+                    level = animation.animatedValue as Int
+                    invalidate()
+                }
+            }
         typedArray.recycle()
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        animator.start()
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        animator.cancel()
     }
 
     override fun onDraw(canvas: Canvas) {
