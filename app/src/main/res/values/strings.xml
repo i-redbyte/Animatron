@@ -18,4 +18,5 @@
     <string name="pascal_triangle">Pascal triangle</string>
     <string name="pythagoras_tree">Pythagoras tree</string>
     <string name="koch_snow">Koch Snow</string>
+    <string name="sierpinski_triangle">Sierpinski Triangle</string>
 </resources>

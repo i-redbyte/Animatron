@@ -22,4 +22,9 @@
         <attr name="endColor" />
         <attr name="level" />
     </declare-styleable>
+    <declare-styleable name="SierpinskiTriangleView">
+        <attr name="color1" format="color" />
+        <attr name="color2" format="color" />
+        <attr name="depth" format="integer" />
+    </declare-styleable>
 </resources>
