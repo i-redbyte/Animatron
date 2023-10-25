@@ -14,6 +14,7 @@ import org.redbyte.animatron.pythagoras.PythagorasActivity
 import org.redbyte.animatron.scrollman.ScrollmanActivity
 import org.redbyte.animatron.sierpinski.SierpinskiCurveActivity
 import org.redbyte.animatron.sierpinski.SierpinskiTriangleActivity
+import org.redbyte.animatron.table.TableActivity
 import org.redbyte.animatron.tictactoe.TicTacToeActivity
 import org.redbyte.animatron.trigan.TriganActivity
 
@@ -57,6 +58,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnSierpinskiTriangle).setOnClickListener {
             startActivity(SierpinskiTriangleActivity.newInstance(this))
+        }
+        findViewById<Button>(R.id.btnRedTable).setOnClickListener {
+            startActivity(TableActivity.newInstance(this))
         }
     }
 }
