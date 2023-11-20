@@ -12,12 +12,12 @@ class TableActivity : AppCompatActivity() {
         setContentView(R.layout.activity_table)
         val table = findViewById<RedTableView>(R.id.table)
         val matrix = listOf(
-            listOf("A", "B", "C"),
-            listOf("Ленин", "Сталин", "Че"),
-            listOf("Партия", "ум честь и ", "совесть"),
-            listOf("С++", "С", "1С")
+            listOf("Java", "Kotlin", "Groovy"),
+            listOf("Haskell", "Lisp", "OCaml"),
+            listOf("Pascal", "Basic", "Fortran"),
+            listOf("С++", "С", "Rust")
         )
-        table.setColumnHeaders(listOf("1", "2", "3"))
+        table.setColumnHeaders(listOf("Column1", "Column2", "Column3"))
         table.setTableData(matrix)
     }
 

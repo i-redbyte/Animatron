@@ -24,14 +24,14 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
     private var columnMaxWidths = IntArray(0)
 
     init {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomTableView)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RedTableView)
         selectColor = typedArray.getColor(
-            R.styleable.CustomTableView_selectColor,
+            R.styleable.RedTableView_selectColor,
             Color.parseColor("#6AD7E5")
         )
-        textColor = typedArray.getColor(R.styleable.CustomTableView_textColor, Color.BLACK)
+        textColor = typedArray.getColor(R.styleable.RedTableView_textColor, Color.BLACK)
         paint.textSize = typedArray.getDimension(
-            R.styleable.CustomTableView_android_textSize,
+            R.styleable.RedTableView_android_textSize,
             resources.getDimension(R.dimen.text_size)
         )
         typedArray.recycle()
@@ -43,7 +43,7 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
         for (col in columnHeaders.indices) {
             val left = col * cellWidth
             val x = left + cellWidth / 2
-            canvas?.drawText(columnHeaders[col], x, 40f, paint)
+            canvas?.drawText(columnHeaders[col], x, 80f, paint)
         }
 
         for (row in tableData.indices) {

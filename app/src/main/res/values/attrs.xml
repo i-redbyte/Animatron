@@ -28,7 +28,7 @@
         <attr name="depth" format="integer" />
     </declare-styleable>
 
-    <declare-styleable name="CustomTableView">
+    <declare-styleable name="RedTableView">
         <attr name="selectColor" format="color" />
         <attr name="textColor" format="color"/>
         <attr name="android:textSize"/>
