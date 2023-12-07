@@ -10,6 +10,8 @@ import android.view.View
 import org.redbyte.animatron.R
 import kotlin.math.min
 
+typealias CellClickListener = (Int, Int, String) -> Unit
+
 class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs) {
     private var tableData: List<List<String>> = emptyList()
     private var columnHeaders: List<String> = emptyList()
@@ -23,16 +25,16 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
     private val paint = Paint()
     private var columnMaxWidths = IntArray(0)
 
+    private var cellClickListener: CellClickListener = { _, _, _ -> }
+
     init {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RedTableView)
         selectColor = typedArray.getColor(
-            R.styleable.RedTableView_selectColor,
-            Color.parseColor("#6AD7E5")
+            R.styleable.RedTableView_selectColor, Color.parseColor("#6AD7E5")
         )
         textColor = typedArray.getColor(R.styleable.RedTableView_textColor, Color.BLACK)
         paint.textSize = typedArray.getDimension(
-            R.styleable.RedTableView_android_textSize,
-            resources.getDimension(R.dimen.text_size)
+            R.styleable.RedTableView_android_textSize, resources.getDimension(R.dimen.text_size)
         )
         typedArray.recycle()
     }
@@ -95,21 +97,30 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
             MotionEvent.ACTION_DOWN -> {
                 val row = (event.y / cellHeight).toInt() - 1
                 val col = min((event.x / cellWidth).toInt(), tableData.first().size - 1)
-
                 if (row >= 0 && row < tableData.size && col >= 0 && col < tableData.first().size) {
-                    if (selectedRow == row && selectedColumn == col) {
-                        selectedRow = -1
-                        selectedColumn = -1
-                    } else {
-                        selectedRow = row
-                        selectedColumn = col
-                    }
+                    val value = tableData[row][col]
+                    cellClickListener(row, col, value)
+                    selectCell(row, col)
                     invalidate()
                     return true
                 }
             }
         }
         return super.onTouchEvent(event)
+    }
+
+    private fun selectCell(row: Int, col: Int) {
+        if (selectedRow == row && selectedColumn == col) {
+            selectedRow = -1
+            selectedColumn = -1
+        } else {
+            selectedRow = row
+            selectedColumn = col
+        }
+    }
+
+    fun setOnCellClickListener(listener: CellClickListener) {
+        cellClickListener = listener
     }
 
     fun setTableData(data: List<List<String>>) {

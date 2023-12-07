@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import org.redbyte.animatron.R
 
 class TableActivity : AppCompatActivity() {
@@ -19,6 +20,11 @@ class TableActivity : AppCompatActivity() {
         )
         table.setColumnHeaders(listOf("Column1", "Column2", "Column3"))
         table.setTableData(matrix)
+        table.setOnCellClickListener { i, j, v ->
+            Toast
+                .makeText(this, "Row: $i; Col: $j; Value = $v", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     companion object {
