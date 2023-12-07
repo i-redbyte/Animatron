@@ -21,8 +21,14 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
     private var textColor: Int = 0
     private var selectedRow = -1
     private var selectedColumn = -1
+    private var showGridLines: Boolean = false
 
     private val paint = Paint()
+    private val gridLinePaint = Paint().apply {
+        color = Color.BLACK
+        strokeWidth = 2f
+        isAntiAlias = false
+    }
     private var columnMaxWidths = IntArray(0)
 
     private var cellClickListener: CellClickListener = { _, _, _ -> }
@@ -33,6 +39,7 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
             R.styleable.RedTableView_selectColor, Color.parseColor("#6AD7E5")
         )
         textColor = typedArray.getColor(R.styleable.RedTableView_textColor, Color.BLACK)
+        showGridLines = typedArray.getBoolean(R.styleable.RedTableView_showGridLines, false)
         paint.textSize = typedArray.getDimension(
             R.styleable.RedTableView_android_textSize, resources.getDimension(R.dimen.text_size)
         )
@@ -42,6 +49,8 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         paint.textAlign = Paint.Align.CENTER
+        if (showGridLines) drawGridLines(canvas = canvas)
+
         for (col in columnHeaders.indices) {
             val left = col * cellWidth
             val x = left + cellWidth / 2
@@ -61,6 +70,12 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
                 val x = left + cellWidth / 2
                 paint.color = textColor
                 canvas?.drawText(tableData[row][col], x, top + (cellHeight / 1.5).toInt(), paint)
+                if (showGridLines && col < tableData[row].size - 1) {
+                    canvas?.drawLine(right - 1, top, right - 1, bottom, gridLinePaint)
+                }
+                if (showGridLines && row < tableData.size - 1) {
+                    canvas?.drawLine(left, bottom - 1, right, bottom - 1, gridLinePaint)
+                }
             }
         }
     }
@@ -135,4 +150,17 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
         requestLayout()
         invalidate()
     }
+
+    private fun drawGridLines(canvas: Canvas?) {
+        for (col in 1 until columnHeaders.size) {
+            val separatorX = col * cellWidth - gridLinePaint.strokeWidth / 2
+            canvas?.drawLine(separatorX, 0f, separatorX, height.toFloat(), gridLinePaint)
+        }
+
+        for (row in 1 until tableData.size) {
+            val separatorY = row * cellHeight - gridLinePaint.strokeWidth / 2
+            canvas?.drawLine(0f, separatorY, width.toFloat(), separatorY, gridLinePaint)
+        }
+    }
+
 }
