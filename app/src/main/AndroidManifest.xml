@@ -8,46 +8,62 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        >
+        <activity
+            android:name=".newyear.NewYearActivity"
+            android:exported="false"
+            />
         <activity
             android:name=".table.TableActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".sierpinski.SierpinskiTriangleActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".koch.KochSnowActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".pythagoras.PythagorasActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".pascal.PascalActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".sierpinski.SierpinskiCurveActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".tictactoe.TicTacToeActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".life.LifeGameActivity"
-            android:exported="false" />
+            android:exported="false"
+            />
         <activity
             android:name=".compost.CompostActivity"
             android:exported="false"
             android:label="@string/title_activity_compost"
-            android:theme="@style/AppThemeCompost" />
+            android:theme="@style/AppThemeCompost"
+            />
         <activity android:name=".card.GoCardActivity" />
         <activity
             android:name=".trigan.TriganActivity"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            />
         <activity android:name=".scrollman.ScrollmanActivity" />
         <activity android:name=".power.GolangPowerActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="fullSensor"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

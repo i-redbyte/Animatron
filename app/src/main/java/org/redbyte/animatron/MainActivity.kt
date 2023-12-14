@@ -8,6 +8,7 @@ import org.redbyte.animatron.card.GoCardActivity
 import org.redbyte.animatron.compost.CompostActivity
 import org.redbyte.animatron.koch.KochSnowActivity
 import org.redbyte.animatron.life.LifeGameActivity
+import org.redbyte.animatron.newyear.NewYearActivity
 import org.redbyte.animatron.pascal.PascalActivity
 import org.redbyte.animatron.power.GolangPowerActivity
 import org.redbyte.animatron.pythagoras.PythagorasActivity
@@ -61,6 +62,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnRedTable).setOnClickListener {
             startActivity(TableActivity.newInstance(this))
+        }
+        findViewById<Button>(R.id.btnNewYear).setOnClickListener {
+            startActivity(NewYearActivity.newInstance(this))
         }
     }
 }

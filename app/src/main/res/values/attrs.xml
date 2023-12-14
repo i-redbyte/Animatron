@@ -30,8 +30,11 @@
 
     <declare-styleable name="RedTableView">
         <attr name="selectColor" format="color" />
-        <attr name="textColor" format="color"/>
-        <attr name="showGridLines" format="boolean"/>
-        <attr name="android:textSize"/>
+        <attr name="textColor" format="color" />
+        <attr name="showGridLines" format="boolean" />
+        <attr name="android:textSize" />
+    </declare-styleable>
+    <declare-styleable name="NewYearTreeView">
+        <attr name="ballsCount" format="integer" />
     </declare-styleable>
 </resources>
