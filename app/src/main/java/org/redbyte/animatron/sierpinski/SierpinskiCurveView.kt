@@ -7,11 +7,6 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.ColorInt
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import org.redbyte.animatron.R
 import org.redbyte.animatron.base.extensions.dp
 import java.lang.Math.PI
@@ -48,7 +43,7 @@ class SierpinskiCurveView @JvmOverloads constructor(
         }
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         this.canvas = canvas ?: return
         drawSierpinskiCurve()

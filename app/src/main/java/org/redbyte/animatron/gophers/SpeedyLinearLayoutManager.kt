@@ -1,4 +1,4 @@
-package org.redbyte.animatron.scrollman
+package org.redbyte.animatron.gophers
 
 import android.content.Context
 import android.util.DisplayMetrics

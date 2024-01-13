@@ -89,9 +89,9 @@ class PascalTriangleView @JvmOverloads constructor(
         return super.onTouchEvent(event)
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas?.apply {
+        canvas.apply {
             drawPascalTriangle(this)
             drawSelectedItemWithRotation(this)
         }

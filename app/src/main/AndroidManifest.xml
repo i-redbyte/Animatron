@@ -57,7 +57,7 @@
             android:name=".trigan.TriganActivity"
             android:screenOrientation="landscape"
             />
-        <activity android:name=".scrollman.ScrollmanActivity" />
+        <activity android:name=".gophers.GophersActivity" />
         <activity android:name=".power.GolangPowerActivity" />
         <activity
             android:name=".MainActivity"

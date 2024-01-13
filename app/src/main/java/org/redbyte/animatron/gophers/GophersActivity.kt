@@ -1,4 +1,4 @@
-package org.redbyte.animatron.scrollman
+package org.redbyte.animatron.gophers
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.redbyte.animatron.R
 import org.redbyte.animatron.base.DelegationAdapter
 
-class ScrollmanActivity : AppCompatActivity() {
+class GophersActivity : AppCompatActivity() {
     private val rvGophers by lazy { findViewById<RecyclerView>(R.id.rvGophers) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +43,7 @@ class ScrollmanActivity : AppCompatActivity() {
 
     companion object {
         const val STOP_POSITION = 10
-        fun newInstance(context: Context): Intent = Intent(context, ScrollmanActivity::class.java)
+        fun newInstance(context: Context): Intent = Intent(context, GophersActivity::class.java)
     }
 }
 

@@ -46,7 +46,7 @@ class RedTableView(context: Context, attrs: AttributeSet?) : View(context, attrs
         typedArray.recycle()
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         paint.textAlign = Paint.Align.CENTER
         if (showGridLines) drawGridLines(canvas = canvas)

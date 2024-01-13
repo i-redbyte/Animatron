@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.animation.Animation
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import org.redbyte.animatron.R
 import org.redbyte.animatron.base.extensions.getScreenWidth
 import kotlin.math.PI
@@ -18,6 +19,9 @@ class TriganActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trigan)
+        Glide.with(this)
+            .load(R.drawable.ic_go_cosmos)
+            .into(ivCosmoGopher)
         setupAnimation()
     }
 

@@ -23,16 +23,16 @@ class SkyView : View {
     }
 
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         for (i in 1..600) {
             val x = Random.nextInt(0, width).toFloat()
             val y = Random.nextInt(0, height).toFloat()
             val r = Random.nextInt(1, MAX_RADIUS).toFloat()
             if ((x + y).toInt() and 1 == 0)
-                canvas?.drawPoint(x, y, paint)
+                canvas.drawPoint(x, y, paint)
             else
-                canvas?.drawCircle(x, y, r, paint)
+                canvas.drawCircle(x, y, r, paint)
         }
     }
 

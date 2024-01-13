@@ -12,7 +12,7 @@ import org.redbyte.animatron.newyear.NewYearActivity
 import org.redbyte.animatron.pascal.PascalActivity
 import org.redbyte.animatron.power.GolangPowerActivity
 import org.redbyte.animatron.pythagoras.PythagorasActivity
-import org.redbyte.animatron.scrollman.ScrollmanActivity
+import org.redbyte.animatron.gophers.GophersActivity
 import org.redbyte.animatron.sierpinski.SierpinskiCurveActivity
 import org.redbyte.animatron.sierpinski.SierpinskiTriangleActivity
 import org.redbyte.animatron.table.TableActivity
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, GolangPowerActivity::class.java))
         }
         findViewById<Button>(R.id.btnGophers).setOnClickListener {
-            startActivity(ScrollmanActivity.newInstance(this))
+            startActivity(GophersActivity.newInstance(this))
         }
         findViewById<Button>(R.id.btnTrigan).setOnClickListener {
             startActivity(TriganActivity.newInstance(this))

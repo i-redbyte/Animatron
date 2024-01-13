@@ -15,7 +15,6 @@
         android:id="@+id/ivCosmoGopher"
         android:layout_width="160dp"
         android:layout_height="180dp"
-        android:src="@drawable/ic_go_cosmos"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
