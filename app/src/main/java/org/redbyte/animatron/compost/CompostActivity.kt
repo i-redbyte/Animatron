@@ -1,5 +1,6 @@
 package org.redbyte.animatron.compost
 
+import PascalTriangleView
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -14,8 +15,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import org.redbyte.animatron.compost.ui.AnimationArc
 import org.redbyte.animatron.compost.ui.AnimationCircle
 import org.redbyte.animatron.compost.ui.theme.AnimatronTheme
 
@@ -28,7 +29,8 @@ class CompostActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    ShowCircleAnimation()
+//                    ShowCircleAnimation()
+                    PascalTriangleView(itemColor = Color.Red)
                 }
             }
         }
