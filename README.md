@@ -1,20 +1,25 @@
-**Android animation experiments**
+# Animatron
 
---- No patterns, no architecture, just animation and view!
-# Attention!
-# Will update soon with latest changes
+This repository is created for experiments with custom views, animations, and various visualizations, therefore the examples presented here are without architecture and patterns, simply a visual demonstration.
 
-[//]: # (- [Golang power]&#40;/info/golang_power.md&#41;)
 
-[//]: # ()
-[//]: # (- [Gophers auto scroll]&#40;/info/gophers.md&#41;)
+<div align="center">
 
-[//]: # ()
-[//]: # (- [Space gopher]&#40;/info/space_gopher.md&#41;)
+| Project Name          |
+|-----------------------|
+| Golang Power!         |
+| Gophers               |
+| Sweet Trigonometry    |
+| Go Card               |
+| Compost               |
+| Life Game             |
+| Tic Tac Toe           |
+| Sierpinski Curve      |ср
+| Pascal Triangle       |
+| Pythagoras Tree       |
+| Koch Snow             |
+| Sierpinski Triangle   |
+| Table                 |
+| New Year              |
 
-[//]: # ()
-[//]: # (- [Sierpinski curve view]&#40;/info/sierpinski.md&#41;)
-
-[//]: # ()
-[//]: # (- [Go card]&#40;/info/go_card.md&#41;)
-
+</div>
