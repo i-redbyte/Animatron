@@ -29,8 +29,8 @@ class CompostActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-//                    ShowCircleAnimation()
-                    PascalTriangleView(itemColor = Color.Red)
+                    ShowCircleAnimation()
+//                    PascalTriangleView(itemColor = Color.Red)
                 }
             }
         }
