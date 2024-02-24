@@ -11,11 +11,10 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import org.redbyte.animatron.R
+import org.redbyte.animatron.base.extensions.getScreenHeight
 import org.redbyte.animatron.power.animatron.PlainAnimationListener
 import org.redbyte.animatron.power.animatron.PlainAnimatorListener
 import org.redbyte.animatron.power.animatron.PlainTransitionListener
-
-private const val DELTA_Y = 900
 
 class GolangPowerActivity : AppCompatActivity() {
     private val btnNext by lazy { findViewById<Button>(R.id.btnNext) }
@@ -37,13 +36,14 @@ class GolangPowerActivity : AppCompatActivity() {
     }
 
     private fun animateScene() {
+        val deltaY = getScreenHeight() / 2.5f
         gopherRootMotion.setTransitionListener(object : PlainTransitionListener() {
             override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
                 ivSceneCircleMask.alpha = 1f
                 animateViewAlpha(ivSceneCircleMask, 10, 0)
                 val duration = 600L
                 val mobileImageY = ivGopher.y
-                moveViewByY(ivGopher, duration, 100, -(mobileImageY - DELTA_Y))
+                moveViewByY(ivGopher, duration, 100, -(mobileImageY - deltaY))
             }
         })
         gopherRootMotion.setTransition(R.id.start, R.id.end)
