@@ -2,4 +2,4 @@
 
 **Experiment with MotionLayout**
 
-![](/info/gifs/golangPower.gif)
+![golangPower](/info/gifs/golangPower.gif)

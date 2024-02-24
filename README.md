@@ -8,7 +8,7 @@ This repository is created for experiments with custom views, animations, and va
 | Project Name                          |
 |---------------------------------------|
 | [Golang Power!](/info/golangPower.md) |
-| Gophers                               |
+| [Gophers](/info/gophers.md)           |
 | Sweet Trigonometry                    |
 | Go Card                               |
 | Compost                               |
