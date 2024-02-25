@@ -19,7 +19,7 @@ a visual demonstration.
 | [Sierpinski Curve](/info/sierpinskiCurve.md) |ср
 | [Pascal Triangle](/info/pascalTriangle.md)   |
 | [Pythagoras Tree](/info/pythagorasTree.md)   |
-| Koch Snow                                    |
+| [Koch Snow](/info/kochSnow.md)               |
 | Sierpinski Triangle                          |
 | Table                                        |
 | New Year                                     |
