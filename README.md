@@ -18,7 +18,7 @@ a visual demonstration.
 | [Tic Tac Toe](/info/tictactoe.md)            |
 | [Sierpinski Curve](/info/sierpinskiCurve.md) |ср
 | [Pascal Triangle](/info/pascalTriangle.md)   |
-| Pythagoras Tree                              |
+| [Pythagoras Tree](/info/pythagorasTree.md)   |
 | Koch Snow                                    |
 | Sierpinski Triangle                          |
 | Table                                        |
