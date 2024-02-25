@@ -14,7 +14,7 @@ a visual demonstration.
 | [Sweet Trigonometry](/info/trigan.md) |
 | [Go Card](/info/goCard.md)            |
 | [Compost](/info/compost.md)           |
-| Life Game                             |
+| [Game of Life](/info/life.md)         |
 | Tic Tac Toe                           |
 | Sierpinski Curve                      |ср
 | Pascal Triangle                       |
