@@ -1,6 +1,6 @@
 # Pythagoras Tree
 
-**Implementation of Pythagoras's Triangle as a custom view**
+**Implementation of Pythagoras Triangle as a custom view**
 
 [See more](https://en.wikipedia.org/wiki/Pythagoras_tree_(fractal))
 
