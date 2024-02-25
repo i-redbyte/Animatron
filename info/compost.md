@@ -2,4 +2,4 @@
 
 **A small experiment with Jetpack Compose**
 
-![goCard](/info/gifs/compost.gif)
+![compost](/info/gifs/compost.gif)

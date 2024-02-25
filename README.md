@@ -15,7 +15,7 @@ a visual demonstration.
 | [Go Card](/info/goCard.md)            |
 | [Compost](/info/compost.md)           |
 | [Game of Life](/info/life.md)         |
-| Tic Tac Toe                           |
+| [Tic Tac Toe](/info/tictactoe.md)     |
 | Sierpinski Curve                      |ср
 | Pascal Triangle                       |
 | Pythagoras Tree                       |

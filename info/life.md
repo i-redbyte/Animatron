@@ -13,4 +13,4 @@ subsequent generation is calculated based on the previous one according to these
 
 [wiki](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-![Life Game](/info/gifs/life.gif)
+![Game of Life](/info/gifs/life.gif)
