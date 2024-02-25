@@ -9,7 +9,7 @@ This repository is created for experiments with custom views, animations, and va
 |---------------------------------------|
 | [Golang Power!](/info/golangPower.md) |
 | [Gophers](/info/gophers.md)           |
-| Sweet Trigonometry                    |
+| [Sweet Trigonometry](/info/trigan.md) |
 | Go Card                               |
 | Compost                               |
 | Life Game                             |
