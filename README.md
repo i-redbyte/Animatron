@@ -22,6 +22,6 @@ a visual demonstration.
 | [Koch Snow](/info/kochSnow.md)                    |
 | [Sierpinski Triangle](info/sierpinskiTriangle.md) |
 | Table                                             |
-| New Year                                          |
+| [New Year](info/newYear.md)                       |
 
 </div>
