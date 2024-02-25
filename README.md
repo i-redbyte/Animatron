@@ -13,7 +13,7 @@ a visual demonstration.
 | [Gophers](/info/gophers.md)           |
 | [Sweet Trigonometry](/info/trigan.md) |
 | [Go Card](/info/goCard.md)            |
-| Compost                               |
+| [Compost](/info/compost.md)           |
 | Life Game                             |
 | Tic Tac Toe                           |
 | Sierpinski Curve                      |ср
