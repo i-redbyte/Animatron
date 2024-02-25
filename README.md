@@ -17,7 +17,7 @@ a visual demonstration.
 | [Game of Life](/info/life.md)                |
 | [Tic Tac Toe](/info/tictactoe.md)            |
 | [Sierpinski Curve](/info/sierpinskiCurve.md) |ср
-| Pascal Triangle                              |
+| [Pascal Triangle](/info/pascalTriangle.md)   |
 | Pythagoras Tree                              |
 | Koch Snow                                    |
 | Sierpinski Triangle                          |
