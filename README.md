@@ -21,7 +21,7 @@ a visual demonstration.
 | [Pythagoras Tree](/info/pythagorasTree.md)        |
 | [Koch Snow](/info/kochSnow.md)                    |
 | [Sierpinski Triangle](info/sierpinskiTriangle.md) |
-| Table                                             |
+| [Table](info/table.md)                            |
 | [New Year](info/newYear.md)                       |
 
 </div>
