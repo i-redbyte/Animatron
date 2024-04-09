@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import org.redbyte.animatron.card.GoCardActivity
 import org.redbyte.animatron.compost.CompostActivity
+import org.redbyte.animatron.curve.CurveActivity
 import org.redbyte.animatron.koch.KochSnowActivity
 import org.redbyte.animatron.life.LifeGameActivity
 import org.redbyte.animatron.newyear.NewYearActivity
@@ -65,6 +66,9 @@ class MainActivity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btnNewYear).setOnClickListener {
             startActivity(NewYearActivity.newInstance(this))
+        }
+        findViewById<Button>(R.id.btnRndCurve).setOnClickListener {
+            startActivity(CurveActivity.newInstance(this))
         }
     }
 }

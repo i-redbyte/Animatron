@@ -59,6 +59,7 @@
             />
         <activity android:name=".gophers.GophersActivity" />
         <activity android:name=".power.GolangPowerActivity" />
+        <activity android:name=".curve.CurveActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

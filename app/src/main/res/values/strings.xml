@@ -21,4 +21,5 @@
     <string name="sierpinski_triangle">Sierpinski Triangle</string>
     <string name="table">Table</string>
     <string name="new_year">New Year</string>
+    <string name="rnd_curve">Случайная кривая</string>
 </resources>
