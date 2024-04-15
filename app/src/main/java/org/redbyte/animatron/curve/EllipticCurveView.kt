@@ -24,6 +24,13 @@ class EllipticCurveView(context: Context, attrs: AttributeSet? = null) : View(co
         textSize = 40f
         textAlign = Paint.Align.CENTER
     }
+    private val gridPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = 0xFFC0C0C0.toInt()
+        strokeWidth = 2f
+    }
+
+    private var gridStepX = 1.0f
+    private var gridStepY = 1.0f
 
     private var a = 0.0
     private var b = 7.0
@@ -34,10 +41,38 @@ class EllipticCurveView(context: Context, attrs: AttributeSet? = null) : View(co
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        drawGrid(canvas)
         drawAxes(canvas)
         drawCurve(canvas)
     }
+    private fun drawGrid(canvas: Canvas) {
+        val scaleX = width / (xMax - xMin).toFloat()
+        val scaleY = height / (xMax - xMin).toFloat()
+        val midX = width / 2f
+        val midY = height / 2f
 
+        var y = midY
+        while (y >= 0) {
+            canvas.drawLine(0f, y, width.toFloat(), y, gridPaint)
+            y -= scaleY * gridStepY
+        }
+        y = midY + scaleY * gridStepY
+        while (y <= height) {
+            canvas.drawLine(0f, y, width.toFloat(), y, gridPaint)
+            y += scaleY * gridStepY
+        }
+
+        var x = midX
+        while (x >= 0) {
+            canvas.drawLine(x, 0f, x, height.toFloat(), gridPaint)
+            x -= scaleX * gridStepX
+        }
+        x = midX + scaleX * gridStepX
+        while (x <= width) {
+            canvas.drawLine(x, 0f, x, height.toFloat(), gridPaint)
+            x += scaleX * gridStepX
+        }
+    }
     private fun drawCurve(canvas: Canvas) {
         val pathPositive = android.graphics.Path()
         val pathNegative = android.graphics.Path()
@@ -106,6 +141,9 @@ class EllipticCurveView(context: Context, attrs: AttributeSet? = null) : View(co
         this.xMin = xMin
         this.xMax = xMax
         this.step = step
+        val rangeX:Float = (xMax - xMin).toFloat()
+        gridStepX = rangeX / 10f
+        gridStepY = gridStepX
         invalidate()
     }
 }
