@@ -19,6 +19,12 @@ class EllipticCurveView(context: Context, attrs: AttributeSet? = null) : View(co
         style = Paint.Style.STROKE
     }
 
+    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        color = 0xFF000000.toInt()
+        textSize = 40f
+        textAlign = Paint.Align.CENTER
+    }
+
     private var a = 0.0
     private var b = 7.0
 
@@ -90,6 +96,8 @@ class EllipticCurveView(context: Context, attrs: AttributeSet? = null) : View(co
         canvas.drawLine(endX, height / 2f, endX - arrowLength, height / 2f + arrowWidth, axisPaint)
         canvas.drawLine(width / 2f, startY, width / 2f - arrowWidth, startY + arrowLength, axisPaint)
         canvas.drawLine(width / 2f, startY, width / 2f + arrowWidth, startY + arrowLength, axisPaint)
+        canvas.drawText("X", endX - arrowLength, height / 2f - arrowWidth - 10f, textPaint)
+        canvas.drawText("Y", width / 2f + arrowWidth + 20f, startY + arrowLength + textPaint.textSize / 2, textPaint)
     }
 
     fun setCurveParameters(a: Double, b: Double, xMin: Double, xMax: Double, step: Double) {
