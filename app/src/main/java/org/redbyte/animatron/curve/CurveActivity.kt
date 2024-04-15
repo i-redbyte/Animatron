@@ -4,13 +4,20 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import org.redbyte.animatron.R
 
 class CurveActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_curve)
+        val ellipticCurveView = findViewById<EllipticCurveView>(R.id.rndCurveView)
+        ellipticCurveView.setCurveParameters(
+            a = -1.0,
+            b = 1.0,
+            xMin = -2.0,
+            xMax = 2.0,
+            step = 0.01
+        )
     }
 
     companion object {

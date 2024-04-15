@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnNewYear).setOnClickListener {
             startActivity(NewYearActivity.newInstance(this))
         }
-        findViewById<Button>(R.id.btnRndCurve).setOnClickListener {
+        findViewById<Button>(R.id.btnEllipticCurve).setOnClickListener {
             startActivity(CurveActivity.newInstance(this))
         }
     }
