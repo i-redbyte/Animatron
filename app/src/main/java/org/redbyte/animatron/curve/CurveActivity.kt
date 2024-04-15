@@ -14,8 +14,8 @@ class CurveActivity : AppCompatActivity() {
         ellipticCurveView.setCurveParameters(
             a = -1.0,
             b = 2.0,
-            xMin = -5.0,
-            xMax = 5.0,
+            xMin = -4.0,
+            xMax = 4.0,
             step = 0.0001
         )
     }

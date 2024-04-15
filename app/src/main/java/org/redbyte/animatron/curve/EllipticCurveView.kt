@@ -78,8 +78,18 @@ class EllipticCurveView(context: Context, attrs: AttributeSet? = null) : View(co
     }
 
     private fun drawAxes(canvas: Canvas) {
-        canvas.drawLine(0f, height / 2f, width.toFloat(), height / 2f, axisPaint)
-        canvas.drawLine(width / 2f, 0f, width / 2f, height.toFloat(), axisPaint)
+        val endX = width.toFloat()
+        val endY = height.toFloat()
+        val startX = 0f
+        val startY = 0f
+        val arrowLength = 30f
+        val arrowWidth = 10f
+        canvas.drawLine(startX, height / 2f, endX, height / 2f, axisPaint)
+        canvas.drawLine(width / 2f, startY, width / 2f, endY, axisPaint)
+        canvas.drawLine(endX, height / 2f, endX - arrowLength, height / 2f - arrowWidth, axisPaint)
+        canvas.drawLine(endX, height / 2f, endX - arrowLength, height / 2f + arrowWidth, axisPaint)
+        canvas.drawLine(width / 2f, startY, width / 2f - arrowWidth, startY + arrowLength, axisPaint)
+        canvas.drawLine(width / 2f, startY, width / 2f + arrowWidth, startY + arrowLength, axisPaint)
     }
 
     fun setCurveParameters(a: Double, b: Double, xMin: Double, xMax: Double, step: Double) {
