@@ -13,10 +13,10 @@ class CurveActivity : AppCompatActivity() {
         val ellipticCurveView = findViewById<EllipticCurveView>(R.id.rndCurveView)
         ellipticCurveView.setCurveParameters(
             a = -1.0,
-            b = 1.0,
-            xMin = -2.0,
-            xMax = 2.0,
-            step = 0.01
+            b = 2.0,
+            xMin = -5.0,
+            xMax = 5.0,
+            step = 0.0001
         )
     }
 
