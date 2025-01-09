@@ -37,4 +37,8 @@
     <declare-styleable name="NewYearTreeView">
         <attr name="ballsCount" format="integer" />
     </declare-styleable>
+    <declare-styleable name="DottedTextView">
+        <attr name="leftText" format="string" />
+        <attr name="rightText" format="string" />
+    </declare-styleable>
 </resources>
